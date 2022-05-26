@@ -1,8 +1,10 @@
-package mobile.app.development.studentscheduler;
+package mobile.app.development.studentscheduler.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import mobile.app.development.studentscheduler.R;
 
 public class MainActivity extends AppCompatActivity {
 
