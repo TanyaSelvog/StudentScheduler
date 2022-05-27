@@ -23,4 +23,14 @@ public class MainActivity extends AppCompatActivity {
         //view.setData(Uri.parse());
         startActivity(intentTerms);
     }
+
+    public void onAssessmentsClick(View view) {
+        Intent intentAssessments = new Intent(MainActivity.this,Assessments.class);
+        startActivity(intentAssessments);
+    }
+
+    public void onCoursesClick(View view) {
+        Intent intentCourses = new Intent(MainActivity.this,Courses.class);
+        startActivity(intentCourses);
+    }
 }

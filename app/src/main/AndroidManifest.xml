@@ -11,13 +11,16 @@
         android:theme="@style/Theme.StudentScheduler">
         <activity
             android:name=".UI.Assessments"
+            android:label="Assessments"
             android:exported="false" />
         <activity
             android:name=".UI.Courses"
+            android:label="Courses"
             android:exported="false" />
         <activity
             android:name=".UI.TermsList"
             android:parentActivityName=".UI.MainActivity"
+            android:label="Terms"
             android:exported="false" />
         <activity
             android:name=".UI.MainActivity"
