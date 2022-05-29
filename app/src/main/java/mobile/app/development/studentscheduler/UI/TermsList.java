@@ -2,9 +2,11 @@ package mobile.app.development.studentscheduler.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import mobile.app.development.studentscheduler.R;
 
@@ -31,5 +33,10 @@ public class TermsList extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addNewTerm(View view) {
+        Intent intent = new Intent(TermsList.this, TermsList.class);
+        startActivity(intent);
     }
 }
