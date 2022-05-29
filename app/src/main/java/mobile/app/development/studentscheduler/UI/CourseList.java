@@ -8,18 +8,18 @@ import android.view.MenuItem;
 
 import mobile.app.development.studentscheduler.R;
 
-public class Assessments extends AppCompatActivity {
+public class CourseList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assessments);
+        setContentView(R.layout.activity_courses);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_assessments, menu);
+        getMenuInflater().inflate(R.menu.menu_courses, menu);
         return true;
     }
 

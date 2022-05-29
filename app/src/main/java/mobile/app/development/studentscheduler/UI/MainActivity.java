@@ -3,7 +3,6 @@ package mobile.app.development.studentscheduler.UI;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAssessmentsClick(View view) {
-        Intent intentAssessments = new Intent(MainActivity.this,Assessments.class);
+        Intent intentAssessments = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intentAssessments);
     }
 
     public void onCoursesClick(View view) {
-        Intent intentCourses = new Intent(MainActivity.this,Courses.class);
+        Intent intentCourses = new Intent(MainActivity.this, CourseList.class);
         startActivity(intentCourses);
     }
 }
