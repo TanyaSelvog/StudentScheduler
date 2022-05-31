@@ -15,4 +15,42 @@ public class Term {
     private LocalDate startTermDate;
     private LocalDate endTermDate;
 
+    public int getTermID() {
+        return termID;
+    }
+
+    public void setTermID(int termID) {
+        this.termID = termID;
+    }
+
+    public String getTermName() {
+        return termName;
+    }
+
+    public void setTermName(String termName) {
+        this.termName = termName;
+    }
+
+    public LocalDate getStartTermDate() {
+        return startTermDate;
+    }
+
+    public void setStartTermDate(LocalDate startTermDate) {
+        this.startTermDate = startTermDate;
+    }
+
+    public LocalDate getEndTermDate() {
+        return endTermDate;
+    }
+
+    public void setEndTermDate(LocalDate endTermDate) {
+        this.endTermDate = endTermDate;
+    }
+
+    public Term(int termID, String termName, LocalDate startTermDate, LocalDate endTermDate) {
+        this.termID = termID;
+        this.termName = termName;
+        this.startTermDate = startTermDate;
+        this.endTermDate = endTermDate;
+    }
 }
