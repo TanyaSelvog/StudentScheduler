@@ -15,6 +15,16 @@ public class Term {
     private LocalDate startTermDate;
     private LocalDate endTermDate;
 
+    @Override
+    public String toString() {
+        return "Term{" +
+                "termID=" + termID +
+                ", termName='" + termName + '\'' +
+                ", startTermDate=" + startTermDate +
+                ", endTermDate=" + endTermDate +
+                '}';
+    }
+
     public int getTermID() {
         return termID;
     }

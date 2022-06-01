@@ -9,6 +9,14 @@ public class Assessment {
     @PrimaryKey (autoGenerate = true)
     private int assessmentID;
 
+    @Override
+    public String toString() {
+        return "Assessment{" +
+                "assessmentID=" + assessmentID +
+                ", assessmentName='" + assessmentName + '\'' +
+                '}';
+    }
+
     public int getAssessmentID() {
         return assessmentID;
     }

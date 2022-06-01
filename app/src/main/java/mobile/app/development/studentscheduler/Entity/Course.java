@@ -17,11 +17,30 @@ public class Course {
         this.endCourseDate = endCourseDate;
     }
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID=" + courseID +
+                ", courseTitle='" + courseTitle + '\'' +
+                ", instructorName='" + instructorName + '\'' +
+                ", startCourseDate=" + startCourseDate +
+                ", endCourseDate=" + endCourseDate +
+                '}';
+    }
+
     @PrimaryKey(autoGenerate = true)
     private int courseID;
 
     private String courseTitle;
     private String instructorName;
+
+    public String getCourseTitle() {
+        return courseTitle;
+    }
+
+    public void setCourseTitle(String courseTitle) {
+        this.courseTitle = courseTitle;
+    }
 
     public String getInstructorName() {
         return instructorName;
