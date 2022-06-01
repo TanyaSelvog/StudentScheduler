@@ -7,9 +7,13 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.List;
+
 import mobile.app.development.studentscheduler.Entity.Course;
+import mobile.app.development.studentscheduler.Entity.Term;
 
 @Dao
 public interface CourseDAO {
@@ -22,4 +26,6 @@ public interface CourseDAO {
     @Delete
     void delete(Course course);
 
+    @Query("SELECT * FROM courses ORDER BY courseID ASC")
+    List<Course> getAllCourses();
 }
