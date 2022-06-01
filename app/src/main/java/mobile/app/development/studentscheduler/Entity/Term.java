@@ -12,8 +12,8 @@ public class Term {
     private int termID;
 
     private String termName;
-    private LocalDate startTermDate;
-    private LocalDate endTermDate;
+    private String startTermDate;
+    private String endTermDate;
 
     @Override
     public String toString() {
@@ -41,23 +41,23 @@ public class Term {
         this.termName = termName;
     }
 
-    public LocalDate getStartTermDate() {
+    public String getStartTermDate() {
         return startTermDate;
     }
 
-    public void setStartTermDate(LocalDate startTermDate) {
+    public void setStartTermDate(String startTermDate) {
         this.startTermDate = startTermDate;
     }
 
-    public LocalDate getEndTermDate() {
+    public String getEndTermDate() {
         return endTermDate;
     }
 
-    public void setEndTermDate(LocalDate endTermDate) {
+    public void setEndTermDate(String endTermDate) {
         this.endTermDate = endTermDate;
     }
 
-    public Term(int termID, String termName, LocalDate startTermDate, LocalDate endTermDate) {
+    public Term(int termID, String termName, String startTermDate, String endTermDate) {
         this.termID = termID;
         this.termName = termName;
         this.startTermDate = startTermDate;

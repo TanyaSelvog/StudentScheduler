@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity(tableName = "courses")
 public class Course {
-    public Course(int courseID, String courseTitle, String instructorName, LocalDate startCourseDate, LocalDate endCourseDate) {
+    public Course(int courseID, String courseTitle, String instructorName, String startCourseDate, String endCourseDate) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.instructorName = instructorName;
@@ -50,19 +50,19 @@ public class Course {
         this.instructorName = instructorName;
     }
 
-    public LocalDate getStartCourseDate() {
+    public String getStartCourseDate() {
         return startCourseDate;
     }
 
-    public void setStartCourseDate(LocalDate startCourseDate) {
+    public void setStartCourseDate(String startCourseDate) {
         this.startCourseDate = startCourseDate;
     }
 
-    public LocalDate getEndCourseDate() {
+    public String getEndCourseDate() {
         return endCourseDate;
     }
 
-    public void setEndCourseDate(LocalDate endCourseDate) {
+    public void setEndCourseDate(String endCourseDate) {
         this.endCourseDate = endCourseDate;
     }
 
@@ -74,7 +74,7 @@ public class Course {
         return courseID;
     }
 
-    private LocalDate startCourseDate;
-    private LocalDate endCourseDate;
+    private String startCourseDate;
+    private String endCourseDate;
 
 }

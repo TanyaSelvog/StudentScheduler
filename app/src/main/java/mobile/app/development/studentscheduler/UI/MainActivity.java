@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import mobile.app.development.studentscheduler.DB.Repository;
+import mobile.app.development.studentscheduler.Entity.Assessment;
 import mobile.app.development.studentscheduler.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public void onAssessmentsClick(View view) {
         Intent intentAssessments = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intentAssessments);
+        Repository repo = new Repository(getApplication());
+
     }
 
     public void onCoursesClick(View view) {
