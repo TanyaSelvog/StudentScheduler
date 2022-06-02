@@ -11,7 +11,8 @@
         android:theme="@style/Theme.StudentScheduler">
         <activity
             android:name=".UI.NewTerms"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Add New Term"/>
         <activity
             android:name=".UI.AssessmentList"
             android:exported="false"

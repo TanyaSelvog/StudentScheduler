@@ -121,7 +121,7 @@ public class Repository {
 
     //Terms
 
-    public List<Term> getmAllTerms(){
+    public List<Term> getAllTerms(){
         databaseExecutor.execute(() ->{
             mAllTerms = mTermDAO.getAllTerms();
         });

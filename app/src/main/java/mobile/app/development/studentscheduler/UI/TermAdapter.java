@@ -43,11 +43,20 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
     @NonNull
     @Override
     public TermAdapter.TermViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View itemView = mInflater.inflate(R.layout.term_list_item,parent,false);
+        return new TermViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TermAdapter.TermViewHolder holder, int position) {
+        if(mTerms!=null){
+            Term current = mTerms.get(position);
+            String name=current.getTermName();
+            holder.termItemView.setText(name);
+        }
+        else{
+            holder.termItemView.setText("No term name");
+        }
 
     }
     public void setTerms(List<Term> terms){
