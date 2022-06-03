@@ -4,6 +4,7 @@
     <string name="courses">Courses</string>
     <string name="assessments">Assessments</string>
     <string name="title_activity_new_terms">NewTerms</string>
+    <string name="startDate">Start Date</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
