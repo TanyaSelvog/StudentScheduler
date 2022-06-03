@@ -10,9 +10,9 @@
     <EditText
         android:id="@+id/endDateText"
         android:layout_width="289dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="500dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginBottom="100dp"
         android:ems="14"
         android:inputType="date"
         android:minHeight="48dp"
@@ -20,15 +20,15 @@
         android:textColor="#A8A6A6"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/endDate"
         android:layout_width="292dp"
         android:layout_height="48dp"
-        android:layout_marginTop="440dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginBottom="10dp"
         android:background="#3F51B5"
         android:backgroundTint="#3F51B5"
         android:fontFamily="casual"
@@ -38,15 +38,14 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/endDateText"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="291dp"
         android:layout_height="52dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="60dp"
         android:ems="14"
         android:inputType="date"
         android:minHeight="48dp"
@@ -54,15 +53,14 @@
         android:textColor="#A8A6A6"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/startDate"
+        app:layout_constraintTop_toTopOf="@id/startDate" />
 
     <TextView
         android:id="@+id/startDate"
         android:layout_width="291dp"
         android:layout_height="56dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="160dp"
         android:background="#3F51B5"
         android:backgroundTint="#3F51B5"
         android:fontFamily="casual"
@@ -73,7 +71,7 @@
         android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/termTitleTV"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -81,7 +79,7 @@
         android:layout_width="97dp"
         android:layout_height="48dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="casual"
         android:text="Save"
         android:textSize="16sp"
@@ -94,13 +92,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="casual"
         android:text="Cancel"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/termTitleTV"
+        android:layout_width="288dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/newTermTitle"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/newTermLabel"
+        app:layout_constraintTop_toTopOf="@id/newTermLabel" />
+
+    <TextView
+        android:id="@+id/newTermLabel"
+        android:layout_width="285dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:background="#3F51B5"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/newTermTitle"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     <string name="courses">Courses</string>
     <string name="assessments">Assessments</string>
     <string name="title_activity_new_terms">NewTerms</string>
-    <string name="newTermTitle">Term Title</string>
+    <string name="newTermTitle">New Term Title</string>
     <string name="startDate">Start Date</string>
     <string name="endDate">End Date</string>
     <!-- Strings used for fragments for navigation -->
