@@ -33,6 +33,7 @@
         android:backgroundTint="#3F51B5"
         android:fontFamily="casual"
         android:gravity="center"
+        android:letterSpacing="0.2"
         android:text="@string/endDate"
         android:textAllCaps="true"
         android:textColor="@color/white"
@@ -42,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/startDateText"
         android:layout_width="291dp"
         android:layout_height="52dp"
         android:layout_marginTop="60dp"
@@ -65,13 +66,14 @@
         android:backgroundTint="#3F51B5"
         android:fontFamily="casual"
         android:gravity="center"
+        android:letterSpacing="0.2"
         android:text="@string/startDate"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/termTitleTV"
+        app:layout_constraintEnd_toEndOf="@id/newTermTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -101,12 +103,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/termTitleTV"
+        android:id="@+id/newTermTextView"
         android:layout_width="288dp"
         android:layout_height="47dp"
         android:layout_marginTop="56dp"
         android:text="@string/newTermTitle"
+        android:textColor="#A8A6A6"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/newTermLabel"
         app:layout_constraintTop_toTopOf="@id/newTermLabel" />
 
@@ -119,6 +123,7 @@
         android:background="#3F51B5"
         android:fontFamily="casual"
         android:gravity="center"
+        android:letterSpacing="0.2"
         android:text="@string/newTermTitle"
         android:textAlignment="center"
         android:textAllCaps="true"

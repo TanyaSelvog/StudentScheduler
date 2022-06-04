@@ -7,6 +7,7 @@
     <string name="newTermTitle">New Term Title</string>
     <string name="startDate">Start Date</string>
     <string name="endDate">End Date</string>
+    <string name="addNewCourse">Add New Course</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

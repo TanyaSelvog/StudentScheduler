@@ -14,10 +14,11 @@
         android:layout_marginBottom="424dp"
         android:backgroundTint="#3F51B5"
         android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:onClick="onTermsClick"
         android:text="@string/terms"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:onClick="onTermsClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -29,10 +30,11 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="#9C27B0"
         android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:onClick="onCoursesClick"
         android:text="@string/courses"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:onClick="onCoursesClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/termsBtn" />
 
@@ -44,10 +46,11 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="#673AB7"
         android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:onClick="onAssessmentsClick"
         android:text="@string/assessments"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:onClick="onAssessmentsClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coursesBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
