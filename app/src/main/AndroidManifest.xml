@@ -14,6 +14,10 @@
             android:exported="false"
             android:label="Add New Term"/>
         <activity
+            android:name=".UI.NewCourse"
+            android:exported="false"
+            android:label="Add New Course"/>
+        <activity
             android:name=".UI.AssessmentList"
             android:exported="false"
             android:label="Assessments" />

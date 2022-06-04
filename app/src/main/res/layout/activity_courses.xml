@@ -15,6 +15,7 @@
         android:layout_marginBottom="34dp"
         android:backgroundTint="#d9daf4"
         android:clickable="true"
+        android:onClick="addNewCourse"
         app:backgroundTint="#d9daf4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
