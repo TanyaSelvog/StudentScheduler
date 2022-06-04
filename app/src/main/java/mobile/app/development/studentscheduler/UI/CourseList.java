@@ -2,6 +2,7 @@ package mobile.app.development.studentscheduler.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,5 +35,8 @@ public class CourseList extends AppCompatActivity {
     }
 
     public void addNewCourse(View view) {
+        Intent intentNewCourse = new Intent(CourseList.this, NewCourse.class);
+        startActivity(intentNewCourse);
+
     }
 }
