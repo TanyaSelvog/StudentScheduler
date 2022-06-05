@@ -33,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onCoursesClick(View view) {
-        Intent intentCourses = new Intent(MainActivity.this, CourseList.class);
-        startActivity(intentCourses);
-    }
+   // public void onCoursesClick(View view) {
+     //   Intent intentCourses = new Intent(MainActivity.this, CourseList.class);
+       // startActivity(intentCourses);
+    //}
 
-    public void EnterHere(View view){
+    public void onCoursesClick(View view){
         Intent intent=new Intent(MainActivity.this,CourseList.class);
         startActivity(intent);
         Repository repo=new Repository(getApplication());
-        Course c = new Course(1, "Logic 101", "Loveelace", "05/01/2022", "10/31/2022");
+        Course c = new Course(1, "Logic 101", "Lovelace", "05/01/2022", "10/31/2022");
         repo.insert(c);
     }
 }
