@@ -26,6 +26,10 @@
             android:exported="false"
             android:label="Courses" />
         <activity
+            android:name=".UI.CourseDetail"
+            android:exported="false"
+            android:label="Course Details" />
+        <activity
             android:name=".UI.TermsList"
             android:exported="false"
             android:label="Terms"
