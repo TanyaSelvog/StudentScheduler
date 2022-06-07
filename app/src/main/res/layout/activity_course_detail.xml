@@ -182,7 +182,6 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="26dp"
         android:entries="@array/status_array"
-        android:popupBackground="`"
         app:layout_constraintBottom_toTopOf="@+id/note"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
