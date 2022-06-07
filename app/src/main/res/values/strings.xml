@@ -8,6 +8,10 @@
     <string name="startDate">Start Date</string>
     <string name="endDate">End Date</string>
     <string name="addNewCourse">Add New Course</string>
+    <string name="courseTitle">Course Title</string>
+    <string name="courseInstructor">Instructor</string>
+    <string name="instructorPhone">Phone Number</string>
+    <string name="instructorEmail">Email</string>
     <string-array name="status_array">
         <item>In Progress</item>
         <item>Completed</item>
