@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/email2"
         android:layout_width="183dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
@@ -14,6 +14,21 @@
         android:fontFamily="casual"
         android:letterSpacing="0.2"
         android:text="@string/instructorEmail"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="356dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:text="@string/note"
         android:textAllCaps="true"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -39,8 +54,8 @@
         android:id="@+id/instructor"
         android:layout_width="183dp"
         android:layout_height="51dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="casual"
         android:letterSpacing="0.2"
         android:text="@string/courseInstructor"
@@ -97,10 +112,10 @@
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="193dp"
+        android:layout_height="46dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@+id/phone_number"
@@ -142,20 +157,20 @@
         android:id="@+id/textView5"
         android:layout_width="148dp"
         android:layout_height="56dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="56dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/instructor"
         app:layout_constraintTop_toBottomOf="@+id/end_date_TV" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="176dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintStart_toEndOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+        app:layout_constraintStart_toEndOf="@+id/email2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

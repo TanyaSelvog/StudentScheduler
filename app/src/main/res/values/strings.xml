@@ -12,6 +12,7 @@
     <string name="courseInstructor">Instructor</string>
     <string name="instructorPhone">Phone Number</string>
     <string name="instructorEmail">Email</string>
+    <string name="note">Notes</string>
     <string-array name="status_array">
         <item>In Progress</item>
         <item>Completed</item>
