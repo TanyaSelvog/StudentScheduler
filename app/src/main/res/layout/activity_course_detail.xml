@@ -54,8 +54,8 @@
         android:id="@+id/instructor"
         android:layout_width="183dp"
         android:layout_height="51dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="casual"
         android:letterSpacing="0.2"
         android:text="@string/courseInstructor"
@@ -84,23 +84,23 @@
         android:id="@+id/eDate"
         android:layout_width="183dp"
         android:layout_height="51dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="casual"
+        android:letterSpacing="0.2"
         android:text="@string/endDate"
         android:textAllCaps="true"
         android:textSize="16sp"
-        android:letterSpacing="0.2"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sDate" />
 
     <TextView
         android:id="@+id/sDate"
-        android:layout_width="179dp"
-        android:layout_height="56dp"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="casual"
         android:letterSpacing="0.2"
         android:text="@string/startDate"
@@ -119,48 +119,48 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@+id/phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/instructor_textview" />
 
     <TextView
-        android:id="@+id/titleTV"
-        android:layout_width="171dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="34dp"
+        android:id="@+id/title_textview"
+        android:layout_width="193dp"
+        android:layout_height="42dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/courseTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/end_date_TV"
         android:layout_width="185dp"
         android:layout_height="44dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/eDate"
-        app:layout_constraintTop_toBottomOf="@+id/sDate" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_date_TV" />
 
     <EditText
         android:id="@+id/start_date_TV"
-        android:layout_width="179dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="191dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/sDate"
-        app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_textview" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="148dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="56dp"
+        android:id="@+id/instructor_textview"
+        android:layout_width="182dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/instructor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/end_date_TV" />
 
     <EditText
