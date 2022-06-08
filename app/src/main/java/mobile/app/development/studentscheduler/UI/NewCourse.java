@@ -15,11 +15,14 @@ import mobile.app.development.studentscheduler.R;
 
 
 public class NewCourse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    String[] country = { "India", "USA", "China", "Japan", "Other"};
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_course);
         Spinner spinner = (Spinner) findViewById(R.id.status_spinner);
+        spinner.setOnItemSelectedListener(this);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.status_array, android.R.layout.simple_spinner_item);
@@ -34,7 +37,7 @@ public class NewCourse extends AppCompatActivity implements AdapterView.OnItemSe
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
-      String item= (String) parent.getItemAtPosition(pos);
+    String item = parent.getItemAtPosition(pos).toString();
 
         // Showing selected spinner item
         Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
@@ -44,6 +47,9 @@ public class NewCourse extends AppCompatActivity implements AdapterView.OnItemSe
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+
+
+
 }
 
 
