@@ -37,7 +37,9 @@ public class NewCourse extends AppCompatActivity implements AdapterView.OnItemSe
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
-    String item = parent.getItemAtPosition(pos).toString();
+    // 'parent.getItemAtPosition(pos);
+        //used for getting item and then to display it on screen with code below (but in final project - dont need)
+        String item = parent.getItemAtPosition(pos).toString();
 
         // Showing selected spinner item
         Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();

@@ -6,6 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/course_title_text3"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="81dp"
+        android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:text="@string/courseTitle"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/start_date"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="156dp"
+        android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:text="@string/startDate"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="207dp"
@@ -42,14 +72,27 @@
 
     <Spinner
         android:id="@+id/status_spinner"
-        android:layout_width="407dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="385dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+
+    <TextView
+        android:id="@+id/end_date"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="256dp"
+        android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:text="@string/endDate"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
