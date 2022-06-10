@@ -176,13 +176,13 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="264dp"
-        android:layout_height="42dp"
+        android:layout_width="324dp"
+        android:layout_height="89dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="26dp"
         android:entries="@array/status_array"
-        app:layout_constraintBottom_toTopOf="@+id/note"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
