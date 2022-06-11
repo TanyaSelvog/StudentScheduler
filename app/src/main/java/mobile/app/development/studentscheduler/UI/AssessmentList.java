@@ -2,9 +2,11 @@ package mobile.app.development.studentscheduler.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import mobile.app.development.studentscheduler.R;
 
@@ -30,5 +32,10 @@ public class AssessmentList extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void addNewAssessment(View view) {
+        Intent intent = new Intent(AssessmentList.this, NewAssessment.class);
+        startActivity(intent);
+
     }
 }
