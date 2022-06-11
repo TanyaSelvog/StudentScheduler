@@ -3,12 +3,12 @@
     <string name="terms">Terms</string>
     <string name="courses">Courses</string>
     <string name="assessments">Assessments</string>
-    <string name="title_activity_new_terms">NewTerms</string>
+    <string name="title_activity_new_terms">New Terms</string>
     <string name="newTermTitle">New Term Title</string>
     <string name="startDate">Start Date</string>
     <string name="endDate">End Date</string>
     <string name="addNewCourse">Add New Course</string>
-    <string name="courseTitle">Course Title</string>
+    <string name="title">Title</string>
     <string name="courseInstructor">Instructor</string>
     <string name="instructorPhone">Phone Number</string>
     <string name="instructorEmail">Email</string>

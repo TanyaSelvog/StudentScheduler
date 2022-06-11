@@ -14,7 +14,7 @@
         android:layout_marginTop="81dp"
         android:fontFamily="casual"
         android:letterSpacing="0.2"
-        android:text="@string/courseTitle"
+        android:text="@string/title"
         android:textAllCaps="true"
         android:textSize="16sp"
         android:textStyle="bold"
