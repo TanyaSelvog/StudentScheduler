@@ -1,6 +1,10 @@
 package mobile.app.development.studentscheduler.UI;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,32 +24,55 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
     super(itemView);
     assessmentItemView =itemView.findViewById(R.id.textView4);
     itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int position=getAdapterPosition();
+            final Assessment currentAssessment = mAssessment.get(position);
+            Intent intent = new Intent(contextAssessment,AssessmentDetail.class);
+            intent.putExtra("assessmentName", currentAssessment.getAssessmentName());
+            contextAssessment.startActivity(intent);
 
+        }
+    });
+    }
+    }
+    private List<Assessment> mAssessment;
+    private final Context contextAssessment;
+    private final LayoutInflater mInflaterAssessment;
+    public AssessmentAdapter(Context contextAssessment) {
+        mInflaterAssessment= LayoutInflater.from(contextAssessment);
+        this.contextAssessment = contextAssessment;
+    }
+    @NonNull
+    @Override
+    public AssessmentAdapter.AssessmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = mInflaterAssessment.inflate(R.layout.assessment_list_item,parent,false);
+        return new AssessmentViewHolder(itemView);
+    }
         @Override
         public void onBindViewHolder(@NonNull AssessmentAdapter.AssessmentViewHolder holder, int position) {
-            if(mAssessments!=null){
-                Course current = mAssessments.get(position);
-              //NEED TO CHNAGE THIS
-                //  String name=current.getCourseTitle();
+            if (mAssessment != null) {
+                Assessment current = mAssessment.get(position);
+                //NEED TO CHNAGE THIS
+                String name = current.getAssessmentName();
                 holder.assessmentItemView.setText(name);
-            }
-            else{
+            } else {
                 holder.assessmentItemView.setText("No course name");
             }
-
+        }
 
     public void setAssessments(List<Assessment> assessments){
-        mAssessments=assessments;
+        mAssessment=assessments;
         notifyDataSetChanged();
     }
 
         @Override
         public int getItemCount() {
-            if(mAssessments != null)
-                return mAssessments.size();
+            if(mAssessment != null)
+                return mAssessment.size();
             else return 0;
         }
     }
-}
+
 
 
