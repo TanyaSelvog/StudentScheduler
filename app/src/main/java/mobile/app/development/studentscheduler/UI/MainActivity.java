@@ -9,6 +9,7 @@ import android.view.View;
 import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.Entity.Assessment;
 import mobile.app.development.studentscheduler.Entity.Course;
+import mobile.app.development.studentscheduler.Entity.Term;
 import mobile.app.development.studentscheduler.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,13 +20,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onTermsClick(View view) {
+  /**  public void onTermsClick(View view) {
         Intent intentTerms = new Intent(MainActivity.this, TermsList.class);
        // view.setAction(Intent.ACTION_VIEW);
         //view.setData(Uri.parse());
         startActivity(intentTerms);
     }
-
+*/
     public void onAssessmentsClick(View view) {
         Intent intentAssessments = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intentAssessments);
@@ -45,4 +46,12 @@ public class MainActivity extends AppCompatActivity {
         Course c = new Course(1, "Logic 101", "Lovelace", "05/01/2022", "10/31/2022");
         repo.insert(c);
     }
-}
+
+
+    public void onTermsClick(View view){
+        Intent intent=new Intent(MainActivity.this,TermsList.class);
+        startActivity(intent);
+        Repository repo=new Repository(getApplication());
+        Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
+        repo.insert(termTest);
+}}
