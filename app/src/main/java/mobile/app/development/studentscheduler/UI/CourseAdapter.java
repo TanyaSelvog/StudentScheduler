@@ -30,6 +30,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                 final Course current = mCourse.get(position);
                 Intent intent = new Intent(context,CourseDetail.class);
                 intent.putExtra("courseName", current.getCourseTitle());
+           //     intent.putExtra("courseDate", current.getStartCourseDate());
                 context.startActivity(intent);
 
             }
@@ -55,7 +56,9 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         if(mCourse!=null){
             Course current = mCourse.get(position);
             String name=current.getCourseTitle();
-            holder.courseItemView.setText(name);
+            //added test to see if it would work
+            String test = current.getEndCourseDate();
+            holder.courseItemView.setText(name + " " + test);
         }
         else{
             holder.courseItemView.setText("No course name");
