@@ -43,6 +43,10 @@
             android:label="Terms"
            />
         <activity
+            android:name=".UI.TermDetail"
+            android:exported="false"
+            android:label="Term Details" />
+        <activity
             android:name=".UI.MainActivity"
             android:exported="true" >
             <intent-filter>
