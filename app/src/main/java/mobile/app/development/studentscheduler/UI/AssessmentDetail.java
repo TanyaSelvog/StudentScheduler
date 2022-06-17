@@ -1,4 +1,6 @@
 package mobile.app.development.studentscheduler.UI;
 
-public class AssessmentDetail {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class AssessmentDetail extends AppCompatActivity {
 }

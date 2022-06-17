@@ -18,14 +18,15 @@ import mobile.app.development.studentscheduler.R;
 
 public class TermsList extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terms_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        RecyclerView recyclerView=findViewById(R.id.recyclerview);
 
+        RecyclerView recyclerView=findViewById(R.id.recyclerview);
         Repository repo=new Repository(getApplication());
         List<Term> terms=repo.getAllTerms();
         final TermAdapter adapter=new TermAdapter(this);

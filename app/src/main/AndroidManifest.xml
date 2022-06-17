@@ -26,6 +26,10 @@
             android:exported="false"
             android:label="Assessments" />
         <activity
+            android:name=".UI.AssessmentDetail"
+            android:exported="false"
+            android:label="Assessment Details" />
+        <activity
             android:name=".UI.CourseList"
             android:exported="false"
             android:label="Courses" />
@@ -37,7 +41,7 @@
             android:name=".UI.TermsList"
             android:exported="false"
             android:label="Terms"
-            android:parentActivityName=".UI.MainActivity" />
+           />
         <activity
             android:name=".UI.MainActivity"
             android:exported="true" >
