@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intentAssessments = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intentAssessments);
         Repository repo = new Repository(getApplication());
-        Assessment assessmentTest = new Assessment(1, "Logic Exam");
+        Assessment assessmentTest = new Assessment(1, "Logic Exam", "Performance", "07/14/2022");
         repo.insert(assessmentTest);
 
     }
