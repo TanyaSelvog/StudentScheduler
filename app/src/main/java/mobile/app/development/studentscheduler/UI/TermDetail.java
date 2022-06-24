@@ -1,10 +1,13 @@
 package mobile.app.development.studentscheduler.UI;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import mobile.app.development.studentscheduler.DB.Repository;
+import mobile.app.development.studentscheduler.Entity.Term;
 import mobile.app.development.studentscheduler.R;
 
 public class TermDetail extends AppCompatActivity {
@@ -14,6 +17,8 @@ public class TermDetail extends AppCompatActivity {
     String title;
     String startDate;
     String endDate;
+    Repository repo;
+    int termID;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -33,4 +38,9 @@ public class TermDetail extends AppCompatActivity {
 
 
         }
+
+    public void saveButtonOnClick(View view) {
+            Term term;
+
+    }
 }

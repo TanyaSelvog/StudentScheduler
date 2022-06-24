@@ -12,12 +12,13 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:background="#3F51B5"
+        android:textColor="#FFFFFF"
         android:fontFamily="casual"
         android:gravity="center"
         android:letterSpacing="0.2"
         android:text="@string/endDate"
         android:textAllCaps="true"
-        android:textColor="#FFFFFFFF"
+
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,4 +91,16 @@
         android:layout_marginEnd="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editStartDate" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="270dp"
+        android:layout_marginBottom="41dp"
+        android:text="Save"
+        android:onClick="saveButtonOnClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
