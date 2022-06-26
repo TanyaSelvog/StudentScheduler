@@ -27,12 +27,14 @@ public class TermDetail extends AppCompatActivity {
             editTitle=findViewById(R.id.editTitle);
             editStartDate=findViewById(R.id.editStartDate);
             editEndDate=findViewById(R.id.editEndDate);
+            termID=getIntent().getIntExtra("termID", -1);
             title=getIntent().getStringExtra("termName");
             startDate=getIntent().getStringExtra("startTermDate");
             endDate=getIntent().getStringExtra("endTermDate");
             editTitle.setText(title);
             editStartDate.setText(startDate);
             editEndDate.setText(endDate);
+            repo = new Repository(getApplication());
 
 
 
@@ -41,6 +43,13 @@ public class TermDetail extends AppCompatActivity {
 
     public void saveButtonOnClick(View view) {
             Term term;
+            if (termID == -1) {
+                int newTermID = repo.getAllTerms().get(repo.getAllTerms().size() - 1).getTermID() + 1;
+                        term = new Term(newTermID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString());
+                repo.insert(term);
+            }else{
+                term = new Term(termID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString());
+                        repo.update(term);
 
     }
-}
+}}
