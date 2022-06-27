@@ -103,7 +103,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/newTermTextView"
         android:layout_width="288dp"
         android:layout_height="47dp"
