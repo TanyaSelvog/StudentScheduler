@@ -11,16 +11,27 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.R;
 
 public class CourseDetail extends AppCompatActivity {
     EditText editTextPhone;
     EditText title_edit;
+    String title;
+    String phone;
+    Repository repo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
-
+        editTextPhone = findViewById(R.id.editTextPhone);
+        title_edit = findViewById(R.id.title_edit);
+        phone = getIntent().getStringExtra("phone");
+        title = getIntent().getStringExtra("courseTitle");
+        editTextPhone.setText(phone);
+        title_edit.setText(title);
+        repo=new Repository(getApplication());
 
     }
     public boolean onCreateOptionsMenu(Menu menu){
