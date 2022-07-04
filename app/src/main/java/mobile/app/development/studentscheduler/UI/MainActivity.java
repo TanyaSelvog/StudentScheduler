@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         Repository repo=new Repository(getApplication());
         Course c = new Course(1, "Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000");
-        repo.insert(c);
+        Course d = new Course(2, "Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033");
+        repo.insert(d);
     }
 
 

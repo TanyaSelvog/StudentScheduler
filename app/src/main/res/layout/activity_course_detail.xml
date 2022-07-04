@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/eDate" />
 
     <TextView
-        android:id="@+id/courseTitle"
+        android:id="@+id/title"
         android:layout_width="177dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -137,20 +137,20 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@+id/phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/instructor_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/editInstructor" />
 
     <EditText
-        android:id="@+id/title_edit"
+        android:id="@+id/courseTitle"
         android:layout_width="193dp"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/end_date_TV"
+        android:id="@+id/editEndDate"
         android:layout_width="185dp"
         android:layout_height="44dp"
         android:layout_marginTop="24dp"
@@ -158,10 +158,10 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_date_TV" />
+        app:layout_constraintTop_toBottomOf="@+id/editStartDate" />
 
     <EditText
-        android:id="@+id/start_date_TV"
+        android:id="@+id/editStartDate"
         android:layout_width="191dp"
         android:layout_height="41dp"
         android:layout_marginTop="24dp"
@@ -169,20 +169,19 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
 
     <EditText
-        android:id="@+id/instructor_textview"
+        android:id="@+id/editInstructor"
         android:layout_width="182dp"
         android:layout_height="40dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end_date_TV" />
+        app:layout_constraintTop_toBottomOf="@+id/editEndDate" />
 
     <EditText
-        android:id="@+id/text_email_edit"
+        android:id="@+id/editEmail"
         android:layout_width="176dp"
         android:layout_height="48dp"
         android:layout_marginStart="21dp"
