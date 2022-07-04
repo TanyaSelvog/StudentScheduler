@@ -40,7 +40,7 @@ public class CourseDetail extends AppCompatActivity {
         editStartDate=findViewById(R.id.editStartDate);
         editEndDate=findViewById(R.id.editEndDate);
         editInstructor=findViewById(R.id.editInstructor);
-       // editEmail=findViewById(R.id.editEmail);
+       editEmail=findViewById(R.id.editEmail);
 
         phone = getIntent().getStringExtra("phone");
         editTextPhone.setText(phone);
@@ -57,7 +57,8 @@ public class CourseDetail extends AppCompatActivity {
         instructor=getIntent().getStringExtra("instructorName");
         editInstructor.setText(instructor);
 
-    //    email=getIntent().getStringExtra()
+        email=getIntent().getStringExtra("email");
+        editEmail.setText(email);
 
         repo=new Repository(getApplication());
 
