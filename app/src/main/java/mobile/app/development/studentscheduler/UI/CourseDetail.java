@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.R;
 import mobile.app.development.studentscheduler.Entity.Course;
 
-public class CourseDetail extends AppCompatActivity {
+public class CourseDetail extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText editTextPhone;
     EditText editStartDate;
     EditText editEndDate;
@@ -62,6 +63,17 @@ public class CourseDetail extends AppCompatActivity {
 
         repo=new Repository(getApplication());
 
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.status_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_course_notes, menu);
@@ -69,6 +81,21 @@ public class CourseDetail extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        parent.getItemAtPosition(pos);
+        //used for getting item and then to display it on screen with code below (but in final project - dont need)
+        String item = parent.getItemAtPosition(pos).toString();
 
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 
 }

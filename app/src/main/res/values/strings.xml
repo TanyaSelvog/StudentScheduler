@@ -10,7 +10,7 @@
     <string name="addNewCourse">Add New Course</string>
     <string name="title">Title</string>
     <string name="courseInstructor">Instructor</string>
-    <string name="instructorPhone">Phone Number</string>
+    <string name="instructorPhone">Phone</string>
     <string name="instructorEmail">Email</string>
     <string name="assessment_type">Assessment Type</string>
     <string name="objective">Objective</string>
