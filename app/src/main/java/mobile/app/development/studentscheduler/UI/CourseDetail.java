@@ -63,7 +63,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         repo=new Repository(getApplication());
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
