@@ -23,6 +23,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     EditText editInstructor;
     EditText editEmail;
     EditText title_edit;
+    Spinner status;
     String title;
     String phone;
     String startDate;
