@@ -14,14 +14,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="290dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/title"
-                android:layout_width="153dp"
-                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="#9C27B0"
@@ -29,17 +32,16 @@
                 android:gravity="center"
                 android:letterSpacing="0.2"
                 android:text="@string/title"
+                android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/editStartDate" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/phone_number"
-                android:layout_width="145dp"
-                android:layout_height="44dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="33dp"
                 android:background="#9C27B0"
@@ -53,7 +55,11 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instructor" />
-
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/instructor"
                 android:layout_width="145dp"
@@ -69,14 +75,12 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eDate" />
+                />
 
 
             <TextView
                 android:id="@+id/eDate"
-                android:layout_width="151dp"
-                android:layout_height="51dp"
+
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:background="#9C27B0"
@@ -88,26 +92,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sDate" />
-
-            <TextView
-                android:id="@+id/sDate"
-                android:layout_width="154dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:background="#9C27B0"
-                android:fontFamily="casual"
-                android:gravity="center"
-                android:letterSpacing="0.2"
-                android:text="@string/startDate"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
             <Spinner
@@ -124,8 +110,8 @@
 
             <TextView
                 android:id="@+id/email2"
-                android:layout_width="142dp"
-                android:layout_height="52dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="37dp"
                 android:background="#9C27B0"
@@ -137,14 +123,17 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
-
+           />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editTextPhone"
-                android:layout_width="193dp"
-                android:layout_height="46dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="36dp"
                 android:ems="10"
@@ -152,16 +141,16 @@
 
             <EditText
                 android:id="@+id/courseTitle"
-                android:layout_width="193dp"
-                android:layout_height="42dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/editEndDate"
-                android:layout_width="185dp"
-                android:layout_height="44dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
@@ -169,39 +158,36 @@
 
             <EditText
                 android:id="@+id/editStartDate"
-                android:layout_width="191dp"
-                android:layout_height="41dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:inputType="date"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
+                 />
 
             <EditText
                 android:id="@+id/editInstructor"
-                android:layout_width="182dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editEndDate" />
+            />
 
             <EditText
                 android:id="@+id/editEmail"
-                android:layout_width="176dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="21dp"
                 android:layout_marginTop="40dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                app:layout_constraintStart_toEndOf="@+id/email2"
-                app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+               />
 
             <TextView
                 android:id="@+id/note"
-                android:layout_width="356dp"
-                android:layout_height="135dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="141dp"
                 android:fontFamily="casual"
@@ -210,9 +196,24 @@
                 android:textAllCaps="true"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email2" />
+              />
 
+                <TextView
+                    android:id="@+id/sDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#9C27B0"
+                    android:fontFamily="casual"
+                    android:gravity="center"
+                    android:letterSpacing="0.2"
+                    android:text="@string/startDate"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
