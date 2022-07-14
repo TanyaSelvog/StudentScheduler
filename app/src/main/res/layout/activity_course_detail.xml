@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:textStyle="bold" />
             <EditText
                 android:id="@+id/courseTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -96,118 +96,18 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
-
-
-            <TextView
-                android:id="@+id/eDate"
-                android:background="#9C27B0"
-                android:fontFamily="casual"
-                android:gravity="center"
-                android:letterSpacing="0.2"
-                android:text="@string/endDate"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:entries="@array/status_array"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email2" />
-
-            <TextView
-                android:id="@+id/email2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="37dp"
-                android:background="#9C27B0"
-                android:fontFamily="casual"
-                android:gravity="center"
-                android:letterSpacing="0.2"
-                android:text="@string/instructorEmail"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-           />
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-
-
-            <EditText
-                android:id="@+id/editEndDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="date" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <EditText
-                android:id="@+id/editStartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="date"
-                 />
-
             <EditText
                 android:id="@+id/editInstructor"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-            />
-
-            <EditText
-                android:id="@+id/editEmail"
-                android:layout_width="wrap_content"
+                />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="40dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-               />
-
-            <TextView
-                android:id="@+id/note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="141dp"
-                android:fontFamily="casual"
-                android:letterSpacing="0.2"
-                android:text="@string/note"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                android:textStyle="bold"
-              />
-
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/sDate"
                     android:layout_width="wrap_content"
@@ -223,6 +123,120 @@
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/editStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:inputType="date"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/eDate"
+                android:background="#9C27B0"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:text="@string/endDate"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/editEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:inputType="date" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:entries="@array/status_array" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/email2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="#9C27B0"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:text="@string/instructorEmail"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+           />
+                <EditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    />
+</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="casual"
+                android:letterSpacing="0.2"
+                android:text="@string/note"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+              />
+                <EditText
+                    android:id="@+id/editNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="306dp"
+                    android:ems="10"
+                    />
+
+
+
+
             </LinearLayout>
 
         </LinearLayout>
