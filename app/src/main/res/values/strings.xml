@@ -15,6 +15,7 @@
     <string name="assessment_type">Assessment Type</string>
     <string name="objective">Objective</string>
     <string name="performance">Performance</string>
+    <string name="save">Save</string>
     <string name="note">Notes</string>
     <string-array name="status_array">
         <item>In Progress</item>
