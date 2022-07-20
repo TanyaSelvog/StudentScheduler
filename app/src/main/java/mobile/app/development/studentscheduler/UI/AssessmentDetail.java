@@ -1,6 +1,7 @@
 package mobile.app.development.studentscheduler.UI;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,5 +26,9 @@ public class AssessmentDetail extends AppCompatActivity {
             editEndDate.setText(date);
 
 
-        }}
+        }
+
+    public void onRadioButtonClicked(View view) {
+    }
+}
 
