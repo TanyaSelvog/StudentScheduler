@@ -42,8 +42,8 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="388dp"
-        android:layout_height="144dp"
+        android:layout_width="348dp"
+        android:layout_height="129dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:orientation="vertical"
@@ -52,26 +52,25 @@
 
         <RadioButton
             android:id="@+id/obj_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:layout_marginStart="16dp"
+            android:layout_width="207dp"
+            android:layout_height="64dp"
             android:fontFamily="casual"
             android:letterSpacing="0.2"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/objective"
             android:textAllCaps="true"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/perf_btn"
             app:layout_constraintTop_toBottomOf="@+id/tv8" />
 
         <RadioButton
             android:id="@+id/perf_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="251dp"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:fontFamily="casual"
             android:letterSpacing="0.2"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/performance"
             android:textAllCaps="true"
             android:textSize="16sp"
