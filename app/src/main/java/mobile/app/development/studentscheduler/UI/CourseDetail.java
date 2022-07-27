@@ -1,7 +1,9 @@
 package mobile.app.development.studentscheduler.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -76,12 +78,31 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-
+    //Course Menu
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_course_notes, menu);
         return true;
     }
+public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.shareNote:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent .putExtra(Intent.EXTRA_TEXT, "text from note field");
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Message title");
+                sendIntent.setType("text/plain");
+                Intent shareIntent=Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+                return true;
+            case R.id.notify:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+}
 
 
     @Override
