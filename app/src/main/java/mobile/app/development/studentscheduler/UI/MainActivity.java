@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this,CourseList.class);
         startActivity(intent);
         Repository repo=new Repository(getApplication());
-        Course c = new Course(1, "Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1);
-        Course d = new Course(2, "Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2);
+        Course c = new Course(1, "Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
+        Course d = new Course(2, "Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
         repo.insert(d);
     }
 

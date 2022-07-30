@@ -25,6 +25,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     EditText editInstructor;
     EditText editEmail;
     EditText title_edit;
+    EditText editNote;
+    String note;
     Spinner status;
     String title;
     String phone;
@@ -45,9 +47,13 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         editEndDate=findViewById(R.id.editEndDate);
         editInstructor=findViewById(R.id.editInstructor);
        editEmail=findViewById(R.id.editEmail);
+       editNote =findViewById(R.id.editNote);
 
         phone = getIntent().getStringExtra("phone");
         editTextPhone.setText(phone);
+
+        note = getIntent().getStringExtra("courseNote");
+        editNote.setText(note);
 
         title = getIntent().getStringExtra("courseTitle");
         title_edit.setText(title);
