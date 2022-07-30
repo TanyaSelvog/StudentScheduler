@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity(tableName = "courses")
 public class Course {
-    public Course(int courseID, String courseTitle, String instructorName, String startCourseDate, String endCourseDate, String phone, String email, int status) {
+    public Course(int courseID, String courseTitle, String instructorName, String startCourseDate, String endCourseDate, String phone, String email, int status, String courseNote) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.instructorName = instructorName;
@@ -18,6 +18,7 @@ public class Course {
         this.phone = phone;
         this.email=email;
         this.status=status;
+        this.courseNote=courseNote;
     }
 
     @Override
@@ -31,6 +32,7 @@ public class Course {
                 ",phone=" + phone +
                 ",email=" + email +
                 ",status=" + status +
+                ",courseNote=" + courseNote +
                 '}';
     }
 
@@ -44,7 +46,7 @@ public class Course {
     private String startCourseDate;
     private String endCourseDate;
     private int status;
-
+    private String courseNote;
     public int getStatus() {
         return status;
     }
@@ -107,5 +109,13 @@ public class Course {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCourseNote() {
+        return courseNote;
+    }
+
+    public void setCourseNote(String courseNote){
+        this.courseNote=courseNote;
     }
 }
