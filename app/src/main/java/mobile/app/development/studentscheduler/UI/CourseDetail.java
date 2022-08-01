@@ -98,7 +98,7 @@ public boolean onOptionsItemSelected(MenuItem item){
             case R.id.shareNote:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent .putExtra(Intent.EXTRA_TEXT, "text from note field");
+                sendIntent .putExtra(Intent.EXTRA_TEXT, editNote.getText().toString());
                 sendIntent.putExtra(Intent.EXTRA_TITLE, "Message title");
                 sendIntent.setType("text/plain");
                 Intent shareIntent=Intent.createChooser(sendIntent, null);
