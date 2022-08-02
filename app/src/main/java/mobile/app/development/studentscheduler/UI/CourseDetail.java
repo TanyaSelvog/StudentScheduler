@@ -152,6 +152,14 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(shareIntent);
                 return true;
             case R.id.notify:
+                String dateFromScreen = editStartDate.getText().toString();
+                Date myDate=null;
+                try {
+                    myDate = sdf.parse(dateFromScreen);
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(CourseDetail.this, MyReceiver.class);
                 return true;
         }
         return super.onOptionsItemSelected(item);
