@@ -1,5 +1,6 @@
 package mobile.app.development.studentscheduler.UI;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,12 +8,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.R;
@@ -35,6 +44,11 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     String instructor;
     String email;
     Repository repo;
+    int courseID;
+    DatePickerDialog.OnDateSetListener sDate;
+    final Calendar myCalendarStart = Calendar.getInstance();
+    String myFormat;
+    SimpleDateFormat sdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +57,40 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
-        editStartDate=findViewById(R.id.editStartDate);
-        editEndDate=findViewById(R.id.editEndDate);
-        editInstructor=findViewById(R.id.editInstructor);
-       editEmail=findViewById(R.id.editEmail);
-       editNote =findViewById(R.id.editNote);
+        editStartDate = findViewById(R.id.editStartDate);
+         myFormat = "MM/dd/yy";
+         sdf = new SimpleDateFormat(myFormat, Locale.US);
+        editStartDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Date date;
+                String info = editStartDate.getText().toString();
+                if (info.equals("")) info = "02/10/22";
+                try {
+                    myCalendarStart.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
+                        .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                        myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+        sDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                myCalendarStart.set(Calendar.YEAR, year);
+                myCalendarStart.set(Calendar.MONTH, monthOfYear);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelStart();
+            }
+        };
+
+        editEndDate = findViewById(R.id.editEndDate);
+        editInstructor = findViewById(R.id.editInstructor);
+        editEmail = findViewById(R.id.editEmail);
+        editNote = findViewById(R.id.editNote);
 
         phone = getIntent().getStringExtra("phone");
         editTextPhone.setText(phone);
@@ -61,16 +104,16 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         startDate = getIntent().getStringExtra("startCourseDate");
         editStartDate.setText(startDate);
 
-        endDate=getIntent().getStringExtra("endCourseDate");
+        endDate = getIntent().getStringExtra("endCourseDate");
         editEndDate.setText(endDate);
 
-        instructor=getIntent().getStringExtra("instructorName");
+        instructor = getIntent().getStringExtra("instructorName");
         editInstructor.setText(instructor);
 
-        email=getIntent().getStringExtra("email");
+        email = getIntent().getStringExtra("email");
         editEmail.setText(email);
 
-        repo=new Repository(getApplication());
+        repo = new Repository(getApplication());
 
         Spinner spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
@@ -84,31 +127,35 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-    //Course Menu
+        //Course Menu
     }
-    public boolean onCreateOptionsMenu(Menu menu){
+    private void updateLabelStart(){
+        editStartDate.setText(sdf.format(myCalendarStart.getTime()));
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_course_notes, menu);
         return true;
     }
-public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
                 return true;
             case R.id.shareNote:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent .putExtra(Intent.EXTRA_TEXT, editNote.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TEXT, editNote.getText().toString());
                 sendIntent.putExtra(Intent.EXTRA_TITLE, "Message title");
                 sendIntent.setType("text/plain");
-                Intent shareIntent=Intent.createChooser(sendIntent, null);
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
             case R.id.notify:
                 return true;
         }
         return super.onOptionsItemSelected(item);
-}
+    }
 
 
     @Override
@@ -127,5 +174,6 @@ public boolean onOptionsItemSelected(MenuItem item){
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
 }
