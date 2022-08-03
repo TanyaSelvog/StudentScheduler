@@ -9,4 +9,9 @@
     <item android:title="Notify"
         android:orderInCategory="100"
         android:id="@+id/notify"/>
+
+    <item android:title="Delete Course"
+        android:orderInCategory="100"
+        android:id="@+id/deleteCourse"/>
+
 </menu>
