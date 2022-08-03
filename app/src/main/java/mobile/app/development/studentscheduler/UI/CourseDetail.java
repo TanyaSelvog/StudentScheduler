@@ -1,6 +1,9 @@
 package mobile.app.development.studentscheduler.UI;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -159,7 +162,12 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 }catch (ParseException e){
                     e.printStackTrace();
                 }
+                Long trigger = myDate.getTime();
                 Intent intent = new Intent(CourseDetail.this, MyReceiver.class);
+                intent.putExtra("key", "messageIWantToSend");
+                PendingIntent sender=PendingIntent.getBroadcast(CourseDetail.this,MainActivity.numAlert++, intent, 0);
+                AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
                 return true;
         }
         return super.onOptionsItemSelected(item);
