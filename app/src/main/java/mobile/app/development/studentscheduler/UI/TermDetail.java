@@ -1,5 +1,9 @@
 package mobile.app.development.studentscheduler.UI;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -7,6 +11,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.ParseException;
+import java.util.Date;
 
 import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.Entity.Term;
@@ -64,8 +71,13 @@ public class TermDetail extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R.id.deleteTerm:
+           // use partList.java for resource
         }
+
  return super .onOptionsItemSelected(item);
     }
+
+
 }
 
