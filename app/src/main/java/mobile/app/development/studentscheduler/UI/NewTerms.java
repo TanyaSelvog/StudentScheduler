@@ -19,6 +19,7 @@ public class NewTerms extends AppCompatActivity {
     String endDate;
     Repository repo;
     int termID;
+    int courseID;
 
     //C&P over term_detail and modifying it (will need to edit/change later 6.27
     @Override

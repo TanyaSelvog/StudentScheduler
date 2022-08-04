@@ -10,7 +10,6 @@ import java.time.LocalDate;
 public class Term {
     @PrimaryKey (autoGenerate = true)
     private int termID;
-
     private String termName;
     private String startTermDate;
     private String endTermDate;
@@ -32,6 +31,7 @@ public class Term {
     public void setTermID(int termID) {
         this.termID = termID;
     }
+
 
     public String getTermName() {
         return termName;
@@ -62,5 +62,7 @@ public class Term {
         this.termName = termName;
         this.startTermDate = startTermDate;
         this.endTermDate = endTermDate;
+
     }
+
 }

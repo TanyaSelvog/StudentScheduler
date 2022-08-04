@@ -20,6 +20,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     class CourseViewHolder extends RecyclerView.ViewHolder{
 
     private final TextView courseItemView;
+
     private CourseViewHolder(View itemView){
         super(itemView);
         courseItemView =itemView.findViewById(R.id.textView3);

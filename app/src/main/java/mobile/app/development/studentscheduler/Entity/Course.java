@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 
 @Entity(tableName = "courses")
 public class Course {
-    public Course(int courseID, String courseTitle, String instructorName, String startCourseDate, String endCourseDate, String phone, String email, int status, String courseNote) {
+    public Course(int courseID, int termID, String courseTitle, String instructorName, String startCourseDate, String endCourseDate, String phone, String email, int status, String courseNote) {
         this.courseID = courseID;
+        this.termID=termID;
         this.courseTitle = courseTitle;
         this.instructorName = instructorName;
         this.startCourseDate = startCourseDate;
@@ -25,6 +26,7 @@ public class Course {
     public String toString() {
         return "Course{" +
                 "courseID=" + courseID +
+                "termID=" + termID +
                 ", courseTitle='" + courseTitle + '\'' +
                 ", instructorName='" + instructorName + '\'' +
                 ", startCourseDate=" + startCourseDate +
@@ -38,7 +40,7 @@ public class Course {
 
     @PrimaryKey(autoGenerate = true)
     private int courseID;
-
+    private int termID;
     private String courseTitle;
     private String instructorName;
     private String phone;
@@ -95,7 +97,13 @@ public class Course {
         return courseID;
     }
 
+    public int getTermID() {
+        return termID;
+    }
 
+    public void setTermID(int termID) {
+        this.termID = termID;
+    }
     public void setPhone(String phone){
         this.phone = phone;
     }
