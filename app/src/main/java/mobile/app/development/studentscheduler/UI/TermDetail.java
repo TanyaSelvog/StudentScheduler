@@ -33,7 +33,7 @@ public class TermDetail extends AppCompatActivity {
     String endDate;
     Repository repo;
     int termID;
-    int courseID;
+    int termTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +42,42 @@ public class TermDetail extends AppCompatActivity {
         editTitle = findViewById(R.id.editTitle);
         editStartDate = findViewById(R.id.editStartDate);
         editEndDate = findViewById(R.id.editEndDate);
-        termID = getIntent().getIntExtra("termID", -1);
+       termID = getIntent().getIntExtra("termID", -1);
         title = getIntent().getStringExtra("termName");
         startDate = getIntent().getStringExtra("startTermDate");
         endDate = getIntent().getStringExtra("endTermDate");
         editTitle.setText(title);
         editStartDate.setText(startDate);
         editEndDate.setText(endDate);
+
         RecyclerView recyclerView = findViewById(R.id.partrecyclerview);
+
         repo = new Repository(getApplication());
+
         final CourseAdapter courseAdapter = new CourseAdapter(this);
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //List<Course> courses = repo.getAllCourses();
+        //final CourseAdapter adapter = new CourseAdapter(this);
+
+        List<Course> coursesInTerm = new ArrayList<>();
+
+        for (Course c: repo.getAllCourses()){
+            if (c.getTermID()==termID)coursesInTerm.add(c);
+        }
+        courseAdapter.setCourses(coursesInTerm);
+     //   recyclerView.setAdapter(adapter);
+       // recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //adapter.setCourses(courses);
+
+        /**
         List<Course> filteredParts= new ArrayList<>();
         for(Course p:repo.getAllCourses()){
             if(p.getTermID()==termID)filteredParts.add(p);
         }
         courseAdapter.setCourses(filteredParts);
+         */
+
     }
     public void saveButtonOnClick(View view) {
         Term term;

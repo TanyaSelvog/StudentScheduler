@@ -38,6 +38,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
               intent.putExtra("phone", current.getPhone());
               intent.putExtra("email", current.getEmail());
               intent.putExtra("status",current.getStatus());
+              intent.putExtra("termID", current.getTermID());
               intent.putExtra("courseNote", current.getCourseNote());
                 context.startActivity(intent);
 
@@ -66,7 +67,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             String name=current.getCourseTitle();
             //added test to see if it would work
             String test = current.getEndCourseDate();
-            holder.courseItemView.setText(name + " " + test);
+            int t = current.getTermID();
+            holder.courseItemView.setText(name + " " + test + " " + t);
         }
         else{
             holder.courseItemView.setText("No course name");

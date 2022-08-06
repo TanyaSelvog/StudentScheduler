@@ -28,8 +28,10 @@ public class CourseList extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview2);
         Repository repo = new Repository(getApplication());
+
         List<Course> courses = repo.getAllCourses();
         final CourseAdapter adapter = new CourseAdapter(this);
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setCourses(courses);

@@ -18,6 +18,16 @@ public static int numAlert;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Repository repo = new Repository(getApplication());
+        Assessment assessmentTest = new Assessment(1, "Logic Exam", "Performance", "07/14/2022");
+        repo.insert(assessmentTest);
+        Course c = new Course(1, 1,"Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
+        Course d = new Course(2,  1,"Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
+        Course e = new Course(3,  2,"Doggos 301", "Milan", "10/01/2022", "1/31/2023", "206-309-4457", "Doggos4Life@yahoo.com", 1, "Great teacher");
+        repo.insert(e);
+        Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
+        Term termTest2 = new Term(2, "Fall 2022", "10/01/2022", "1/31/2023");
+        repo.insert(termTest2);
     }
 
   /**  public void onTermsClick(View view) {
@@ -30,9 +40,7 @@ public static int numAlert;
     public void onAssessmentsClick(View view) {
         Intent intentAssessments = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intentAssessments);
-        Repository repo = new Repository(getApplication());
-        Assessment assessmentTest = new Assessment(1, "Logic Exam", "Performance", "07/14/2022");
-        repo.insert(assessmentTest);
+
 
     }
 
@@ -44,17 +52,17 @@ public static int numAlert;
     public void onCoursesClick(View view){
         Intent intent=new Intent(MainActivity.this,CourseList.class);
         startActivity(intent);
-        Repository repo=new Repository(getApplication());
-        Course c = new Course(1, 1,"Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
-        Course d = new Course(2,  1,"Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
-        repo.insert(c);
+        //Repository repo=new Repository(getApplication());
+    //    Course c = new Course(1, 1,"Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
+      //  Course d = new Course(2,  1,"Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
+        //repo.insert(c);
     }
 
 
     public void onTermsClick(View view){
         Intent intent=new Intent(MainActivity.this,TermsList.class);
         startActivity(intent);
-        Repository repo=new Repository(getApplication());
-        Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
-        repo.insert(termTest);
+
+
+
 }}
