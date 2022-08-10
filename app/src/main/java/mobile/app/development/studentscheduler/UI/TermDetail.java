@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,6 +35,8 @@ public class TermDetail extends AppCompatActivity {
     Repository repo;
     int termID;
     int termTest;
+    Term currentTerm;
+    int numCourses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,11 +117,35 @@ public class TermDetail extends AppCompatActivity {
                 }
                 partAdapter.setParts(filteredParts);
                 return true;
+         */
             case R.id.deleteTerm:
-           // use partList.java for resource
+
+
+         for (Term term : repo.getAllTerms()){
+         if (term.getTermID() == termID) currentTerm = term;
+         }
+         numCourses = 0;
+         for (Course course : repo.getAllCourses()){
+         if (course.getTermID() == termID) ++numCourses;
+         }
+
+
+
+         if (numCourses == 0){
+         repo.delete(currentTerm);
+         Toast.makeText(TermDetail.this, currentTerm.getTermName() + " was deleted", Toast.LENGTH_LONG).show();
+         }else {
+         Toast.makeText(TermDetail.this, "Can't delete a term with courses", Toast.LENGTH_LONG).show();
+         }
+         return true;
+
+
+
+
+
         }
-*/
-        }
+
+
         return super .onOptionsItemSelected(item);
    // }
 

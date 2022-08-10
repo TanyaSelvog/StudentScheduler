@@ -27,11 +27,12 @@ public static int numAlert;
         repo.insert(e);
         Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
         Term termTest2 = new Term(2, "Fall 2022", "10/01/2022", "1/31/2023");
-        repo.insert(termTest2);
+        Term test3 = new Term(3, "Spring 2023", "04/01/2023", "06/01/2023");
+        repo.insert(test3);
     }
 
   /**  public void onTermsClick(View view) {
-        Intent intentTerms = new Intent(MainActivity.this, TermsList.class);
+        Intent intentTerms = new Intent(MainActivity.this, TermsList. );
        // view.setAction(Intent.ACTION_VIEW);
         //view.setData(Uri.parse());
         startActivity(intentTerms);
