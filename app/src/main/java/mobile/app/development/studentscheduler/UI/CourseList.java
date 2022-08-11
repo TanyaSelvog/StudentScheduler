@@ -47,6 +47,8 @@ public class CourseList extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+
+
         }
         return super.onOptionsItemSelected(item);
     }

@@ -119,25 +119,20 @@ public class TermDetail extends AppCompatActivity {
                 return true;
          */
             case R.id.deleteTerm:
-
-
-         for (Term term : repo.getAllTerms()){
-         if (term.getTermID() == termID) currentTerm = term;
-         }
-         numCourses = 0;
-         for (Course course : repo.getAllCourses()){
-         if (course.getTermID() == termID) ++numCourses;
-         }
-
-
-
-         if (numCourses == 0){
-         repo.delete(currentTerm);
-         Toast.makeText(TermDetail.this, currentTerm.getTermName() + " was deleted", Toast.LENGTH_LONG).show();
-         }else {
-         Toast.makeText(TermDetail.this, "Can't delete a term with courses", Toast.LENGTH_LONG).show();
-         }
-         return true;
+                for (Term term : repo.getAllTerms()){
+                    if (term.getTermID() == termID) currentTerm = term;
+                    }
+                numCourses = 0;
+                for (Course course : repo.getAllCourses()){
+                    if (course.getTermID() == termID) ++numCourses;
+                    }
+                if (numCourses == 0){
+                    repo.delete(currentTerm);
+                        Toast.makeText(TermDetail.this, currentTerm.getTermName() + " was deleted", Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(TermDetail.this, "Can't delete a term with courses", Toast.LENGTH_LONG).show();
+                }
+            return true;
 
 
 

@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import mobile.app.development.studentscheduler.DB.Repository;
+import mobile.app.development.studentscheduler.Entity.Term;
 import mobile.app.development.studentscheduler.R;
 import mobile.app.development.studentscheduler.Entity.Course;
 
@@ -52,6 +53,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     final Calendar myCalendarStart = Calendar.getInstance();
     String myFormat;
     SimpleDateFormat sdf;
+    Course currentCourse;
+    int numCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +171,13 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 PendingIntent sender=PendingIntent.getBroadcast(CourseDetail.this,MainActivity.numAlert++, intent, 0);
                 AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
+                return true;
+
+            case R.id.deleteCourse:
+
+                    repo.delete(currentCourse);
+                    Toast.makeText(CourseDetail.this, currentCourse.getCourseTitle() + " was deleted", Toast.LENGTH_LONG).show();
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
