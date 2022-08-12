@@ -9,11 +9,9 @@ public class Assessment {
     @PrimaryKey(autoGenerate = true)
     private int assessmentID;
     private String assessmentName;
-
-
-
     private String assessmentType;
     private String assessmentDate;
+    private int courseID;
 
     public String toString() {
         return "Assessment{" +
@@ -21,6 +19,7 @@ public class Assessment {
                 ", assessmentName='" + assessmentName + '\'' +
                 ", assessmentType='" + assessmentType + '\'' +
                 ", assessmentDate='" + assessmentDate + '\'' +
+                ", courseID='" + courseID + '\'' +
                 '}';
     }
 
@@ -53,14 +52,25 @@ public class Assessment {
         return assessmentDate;
     }
 
+
+
     public void setAssessmentDate(String assessmentDate){
         this.assessmentDate = assessmentDate;
     }
-    public Assessment(int assessmentID, String assessmentName, String assessmentType, String assessmentDate) {
+
+    public int getCourseID(){
+        return courseID;
+    }
+
+    public void setCourseID(int courseID){
+        this.courseID = courseID;
+    }
+    public Assessment(int assessmentID, String assessmentName, String assessmentType, String assessmentDate, int courseID) {
         this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
         this.assessmentType = assessmentType;
         this.assessmentDate = assessmentDate;
+        this.courseID = courseID;
     }
 
 

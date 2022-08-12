@@ -21,12 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import mobile.app.development.studentscheduler.DB.Repository;
+import mobile.app.development.studentscheduler.Entity.Assessment;
 import mobile.app.development.studentscheduler.Entity.Term;
 import mobile.app.development.studentscheduler.R;
 import mobile.app.development.studentscheduler.Entity.Course;
@@ -121,6 +124,12 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         repo = new Repository(getApplication());
 
+        for (Course co : repo.getAllCourses()) {
+            if (co.getCourseID() == courseID) {
+                currentCourse = co;
+            }
+        }
+
         Spinner spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -157,7 +166,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
-            case R.id.notify:
+           case R.id.notify:
                 String dateFromScreen = editStartDate.getText().toString();
                 Date myDate=null;
                 try {
@@ -174,11 +183,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 return true;
 
             case R.id.deleteCourse:
-
                     repo.delete(currentCourse);
-                    Toast.makeText(CourseDetail.this, currentCourse.getCourseTitle() + " was deleted", Toast.LENGTH_LONG).show();
-
-                return true;
+                    Toast.makeText(CourseDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -19,7 +19,7 @@ public static int numAlert;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Repository repo = new Repository(getApplication());
-        Assessment assessmentTest = new Assessment(1, "Logic Exam", "Performance", "07/14/2022");
+        Assessment assessmentTest = new Assessment(1, "Logic Exam", "Performance", "07/14/2022", 1);
         repo.insert(assessmentTest);
         Course c = new Course(1, 1,"Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
         Course d = new Course(2,  1,"Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
