@@ -15,7 +15,7 @@ import mobile.app.development.studentscheduler.Entity.Course;
 import mobile.app.development.studentscheduler.Entity.Term;
 //everytime you change the database, increment DB version
 //includes changing data types
-@Database(entities = {Course.class, Assessment.class, Term.class}, version=12, exportSchema = false)
+@Database(entities = {Course.class, Assessment.class, Term.class}, version=13, exportSchema = false)
 public abstract class  SchedulerDatabaseBuilder extends RoomDatabase {
     public abstract AssessmentDAO assessmentDAO();
     public abstract CourseDAO courseDAO();

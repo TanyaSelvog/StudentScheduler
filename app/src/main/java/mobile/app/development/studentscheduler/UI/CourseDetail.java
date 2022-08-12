@@ -57,13 +57,13 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     String myFormat;
     SimpleDateFormat sdf;
     Course currentCourse;
-    int numCourse;
+    int assessmentCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
-
+        courseID = getIntent().getIntExtra("courseID", -1);
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
         editStartDate = findViewById(R.id.editStartDate);
@@ -123,7 +123,13 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         editEmail.setText(email);
 
         repo = new Repository(getApplication());
-
+        List<Assessment> attachedAssessments = new ArrayList<>();
+        for (Assessment a: repo.getAllAssessments()) {
+            if (a.getCourseID() == courseID){
+                attachedAssessments.add(a);
+            }
+        }
+        assessmentCount = attachedAssessments.size();
         for (Course co : repo.getAllCourses()) {
             if (co.getCourseID() == courseID) {
                 currentCourse = co;
@@ -183,9 +189,12 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 return true;
 
             case R.id.deleteCourse:
+                if (assessmentCount != 0){
+                    Toast.makeText(getApplicationContext(), "As", Toast.LENGTH_LONG).show();
+                }else {
                     repo.delete(currentCourse);
                     Toast.makeText(CourseDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
-        }
+        }}
         return super.onOptionsItemSelected(item);
     }
 
@@ -198,7 +207,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         String item = parent.getItemAtPosition(pos).toString();
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+     //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
     }
 

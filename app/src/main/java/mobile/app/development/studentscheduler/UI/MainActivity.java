@@ -24,7 +24,7 @@ public static int numAlert;
         Course c = new Course(1, 1,"Logic 101", "Lovelace", "05/01/2022", "10/31/2022", "608-100-1000", "Lovelace@WGU.edu", 1, "Exam is a project");
         Course d = new Course(2,  1,"Cats 101", "Garfield", "09/01/2022", "10/31/2022", "206-101-0033", "ProfGarfield@Cats.edu", 2, "This is a note");
         Course e = new Course(3,  2,"Doggos 301", "Milan", "10/01/2022", "1/31/2023", "206-309-4457", "Doggos4Life@yahoo.com", 1, "Great teacher");
-        repo.insert(e);
+        repo.insert(d);
         Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
         Term termTest2 = new Term(2, "Fall 2022", "10/01/2022", "1/31/2023");
         Term test3 = new Term(3, "Spring 2023", "04/01/2023", "06/01/2023");

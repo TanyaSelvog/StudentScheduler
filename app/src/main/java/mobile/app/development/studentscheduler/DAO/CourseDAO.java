@@ -13,7 +13,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import mobile.app.development.studentscheduler.Entity.Course;
-import mobile.app.development.studentscheduler.Entity.Term;
+
 
 @Dao
 public interface CourseDAO {
