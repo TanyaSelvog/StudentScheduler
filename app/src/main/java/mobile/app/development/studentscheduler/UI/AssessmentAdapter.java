@@ -31,6 +31,7 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
             Intent intent = new Intent(contextAssessment,AssessmentDetail.class);
             intent.putExtra("assessmentName", currentAssessment.getAssessmentName());
             intent.putExtra("assessmentDate", currentAssessment.getAssessmentDate());
+            intent.putExtra("assessmentID", currentAssessment.getAssessmentID());
             contextAssessment.startActivity(intent);
 
         }
@@ -56,6 +57,7 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
                 Assessment current = mAssessment.get(position);
                 //NEED TO CHNAGE THIS
                 String name = current.getAssessmentName();
+                int id = current.getAssessmentID();
                 holder.assessmentItemView.setText(name);
             } else {
                 holder.assessmentItemView.setText("No course name");

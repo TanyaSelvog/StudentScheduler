@@ -7,7 +7,7 @@
 
 
 
-    <item android:title="Delete Course"
+    <item android:title="Delete"
         android:orderInCategory="100"
         android:id="@+id/deleteAssessment"/>
 </menu>
