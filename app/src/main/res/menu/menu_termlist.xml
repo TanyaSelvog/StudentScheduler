@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Save Term"
+        android:orderInCategory="100"
+        android:id="@+id/saveTerm"/>
 
     <item android:title="Refresh"
         android:orderInCategory="100"
         android:id="@+id/refreshTerm"/>
+
     <item android:title="Delete Term"
         android:orderInCategory="100"
         android:id="@+id/deleteTerm"/>

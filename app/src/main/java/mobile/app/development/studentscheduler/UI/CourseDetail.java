@@ -163,6 +163,21 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
             case android.R.id.home:
                 this.finish();
                 return true;
+                //TODO - save course 8/14
+          /**  case R.id.saveCourse:
+                Course course;
+                if (courseID == -1) {
+                    int newID = repo.getAllCourses().size();
+                    course = new Course(++newID, title_edit.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(), editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), termId);
+                    repo.insert(course);
+                    Toast.makeText(getApplicationContext(), "Course has been saved.", Toast.LENGTH_LONG).show();
+                } else {
+                    course = new Course(courseID, editCourseName.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(), editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), selectedCourse.getTermId());
+                    repo.update(course);
+                    Toast.makeText(getApplicationContext(), "Course has been updated.", Toast.LENGTH_LONG).show();
+                }
+*/
+
             case R.id.shareNote:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
