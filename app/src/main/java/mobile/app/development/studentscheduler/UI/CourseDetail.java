@@ -58,6 +58,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     SimpleDateFormat sdf;
     Course currentCourse;
     int assessmentCount;
+    int termID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,17 +137,22 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.status_array, android.R.layout.simple_spinner_item);
+
+        status = (Spinner)findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.status_array, android.R.layout.simple_spinner_item);
+        status.setAdapter(adapter);
+      //  status.setSelection(status);
+
+
+    //    Spinner spinner = findViewById(R.id.spinner);
+      //  spinner.setOnItemSelectedListener(this);
+
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //adapter.getDropDownView(int position, View convertView, ViewGroup parent);
 
 // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+     //   spinner.setAdapter(adapter);
 
         //Course Menu
     }
@@ -164,11 +170,17 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 this.finish();
                 return true;
                 //TODO - save course 8/14
-          /**  case R.id.saveCourse:
-                Course course;
+       /**   case R.id.saveCourse:
+              Course course;
                 if (courseID == -1) {
                     int newID = repo.getAllCourses().size();
-                    course = new Course(++newID, title_edit.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(), editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), termId);
+                    course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
+                          editTextPhone.getText().toString(),editEmail.getText().toString(),   status.getSelectedItem().toString(),editNote.getText().toString());
+                    /**
+                    course = new Course(++newID, title_edit.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(),
+                            statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(),
+                            editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), termId);
+
                     repo.insert(course);
                     Toast.makeText(getApplicationContext(), "Course has been saved.", Toast.LENGTH_LONG).show();
                 } else {
@@ -176,6 +188,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                     repo.update(course);
                     Toast.makeText(getApplicationContext(), "Course has been updated.", Toast.LENGTH_LONG).show();
                 }
+
 */
 
             case R.id.shareNote:
@@ -230,6 +243,5 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
 }
