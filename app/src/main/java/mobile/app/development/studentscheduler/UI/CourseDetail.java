@@ -171,26 +171,24 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 this.finish();
                 return true;
                 //TODO - save course 8/14
-       /**   case R.id.saveCourse:
+          case R.id.saveCourse:
               Course course;
                 if (courseID == -1) {
                     int newID = repo.getAllCourses().size();
-                    course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
-                          editTextPhone.getText().toString(),editEmail.getText().toString(),   status.getSelectedItem().toString(),editNote.getText().toString());
-                    /**
-                    course = new Course(++newID, title_edit.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(),
-                            statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(),
-                            editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), termId);
+                    course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
+                            editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
 
                     repo.insert(course);
                     Toast.makeText(getApplicationContext(), "Course has been saved.", Toast.LENGTH_LONG).show();
                 } else {
-                    course = new Course(courseID, editCourseName.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(), statusSpinner.getSelectedItem().toString(), editInstructorName.getText().toString(), editInstructorPhone.getText().toString(), editInstructorEmail.getText().toString(), editCourseNote.getText().toString(), selectedCourse.getTermId());
+                    course = new Course(courseID,termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
+                            editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
                     repo.update(course);
                     Toast.makeText(getApplicationContext(), "Course has been updated.", Toast.LENGTH_LONG).show();
+                    return true;
                 }
 
-*/
+
 
             case R.id.shareNote:
                 Intent sendIntent = new Intent();
@@ -236,10 +234,11 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                     editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
             repo.insert(course);
 
-            //  } else {
-            //    course = new Course(termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
-            //          editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
-//
+        }else {
+                course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
+                      editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
+                repo.update(course);
+
         }
 
         }
