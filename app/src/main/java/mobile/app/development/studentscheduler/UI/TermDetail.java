@@ -93,6 +93,10 @@ public class TermDetail extends AppCompatActivity {
             repo.update(term);
 
         }
+        //8.22 added to save button for link to list
+        // need to read Intent docs
+        Intent intent=new Intent(TermDetail.this,TermsList.class);
+        startActivity(intent);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
