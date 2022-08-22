@@ -44,6 +44,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     EditText editNote;
     String note;
     Spinner status;
+    int statusCourse;
     String title;
     String phone;
     String startDate;
@@ -226,7 +227,22 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
+    public void saveButtonOnClick(View view) {
 
+        Course course;
+        if (courseID == -1) {
+            int newID = repo.getAllCourses().size();
+            course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
+                    editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
+            repo.insert(course);
+
+            //  } else {
+            //    course = new Course(termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
+            //          editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
+//
+        }
+
+        }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // An item was selected. You can retrieve the selected item using
