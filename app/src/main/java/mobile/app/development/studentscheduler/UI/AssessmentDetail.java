@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +28,15 @@ public class AssessmentDetail extends AppCompatActivity {
     TextView editEndDate;
     String title;
     String date;
+    String testType;
     int assessmentID;
     Assessment currentAssessment;
     Repository repo;
+    int courseID;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -49,7 +57,23 @@ public class AssessmentDetail extends AppCompatActivity {
             }
         }
     public void onRadioButtonClicked(View view) {
+
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.obj_btn:
+                if (checked)
+                    break;
+            case R.id.perf_btn:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_assessments, menu);
         return true;
@@ -74,7 +98,14 @@ public class AssessmentDetail extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void saveButtonOnClick(View view) {
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+
+        int genid=radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton) findViewById(genid);
+        String gender=radioButton.getText().toString();
         Assessment assessment;
+
+
 
     /*    if (courseID == -1) {
             int newID = repo.getAllCourses().size();
@@ -88,11 +119,17 @@ public class AssessmentDetail extends AppCompatActivity {
             repo.update(course);
 
         }
+        */
+        if (assessmentID == -1){
+        int newID = repo.getAllAssessments().size();
+        assessment = new Assessment(newID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
 
-     */
+            //    assessmentName, assessmentType, assessmentDate, courseID
+        //title.getText().toString(),
+
         Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
         startActivity(intent);
-
+        }
     }
 
 }
