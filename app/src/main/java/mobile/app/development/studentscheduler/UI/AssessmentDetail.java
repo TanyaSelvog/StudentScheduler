@@ -73,7 +73,27 @@ public class AssessmentDetail extends AppCompatActivity {
                 }}
         return super.onOptionsItemSelected(item);
     }
+    public void saveButtonOnClick(View view) {
+        Assessment assessment;
 
+    /*    if (courseID == -1) {
+            int newID = repo.getAllCourses().size();
+            course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
+                    editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
+            repo.insert(course);
+
+        }else {
+            course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
+                    editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
+            repo.update(course);
+
+        }
+
+     */
+        Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
+        startActivity(intent);
+
+    }
 
 }
 

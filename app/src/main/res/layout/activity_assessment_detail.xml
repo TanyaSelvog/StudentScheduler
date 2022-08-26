@@ -120,6 +120,7 @@
         android:layout_marginStart="272dp"
         android:layout_marginTop="16dp"
         android:text="@string/save"
+        android:onClick="saveButtonOnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTD1" />
 
