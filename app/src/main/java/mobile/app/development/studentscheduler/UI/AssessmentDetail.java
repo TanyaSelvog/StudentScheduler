@@ -96,40 +96,26 @@ public class AssessmentDetail extends AppCompatActivity {
                     Toast.makeText(AssessmentDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
                 }}
         return super.onOptionsItemSelected(item);
-    }
+        }
+
     public void saveButtonOnClick(View view) {
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
-
-        int genid=radioGroup.getCheckedRadioButtonId();
-        RadioButton radioButton = (RadioButton) findViewById(genid);
-        String gender=radioButton.getText().toString();
+        int radioID=radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton) findViewById(radioID);
+        String radioTest=radioButton.getText().toString();
         Assessment assessment;
 
+            if (assessmentID == -1) {
+                int newID = repo.getAllAssessments().size();
+                assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                Toast.makeText(getApplicationContext(), "Assessment has been saved" , Toast.LENGTH_LONG).show();
+                repo.insert(assessment);
 
-
-    /*    if (courseID == -1) {
-            int newID = repo.getAllCourses().size();
-            course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
-                    editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
-            repo.insert(course);
-
-        }else {
-            course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
-                    editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
-            repo.update(course);
-
-        }
-        */
-        if (assessmentID == -1) {
-            int newID = repo.getAllAssessments().size();
-            assessment = new Assessment(newID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
-
-        }else {
-            assessment = new Assessment(assessmentID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
-            Toast.makeText(getApplicationContext(), "Assessment has been updated.", Toast.LENGTH_LONG).show();
-            //    assessmentName, assessmentType, assessmentDate, courseID
-            //title.getText().toString(),
-        }
+            }else {
+                assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                Toast.makeText(AssessmentDetail.this, assessment.getAssessmentName() + " was updated.", Toast.LENGTH_LONG).show();
+                repo.update(assessment);
+            }
         Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
         startActivity(intent);
         }
