@@ -240,6 +240,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 repo.update(course);
 
         }
+        Intent intent=new Intent(CourseDetail.this,CourseList.class);
+        startActivity(intent);
 
         }
     @Override
