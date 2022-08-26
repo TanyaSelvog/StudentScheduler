@@ -120,17 +120,20 @@ public class AssessmentDetail extends AppCompatActivity {
 
         }
         */
-        if (assessmentID == -1){
-        int newID = repo.getAllAssessments().size();
-        assessment = new Assessment(newID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
-
+        if (assessmentID == -1) {
+            int newID = repo.getAllAssessments().size();
+            assessment = new Assessment(newID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
+            Toast.makeText(getApplicationContext(), "ass has been updated.", Toast.LENGTH_LONG).show();
+        }else {
+            assessment = new Assessment(assessmentID, editTitle.getText().toString(), gender, editEndDate.getText().toString(), courseID);
+            Toast.makeText(getApplicationContext(), "ass has been updated.", Toast.LENGTH_LONG).show();
             //    assessmentName, assessmentType, assessmentDate, courseID
-        //title.getText().toString(),
-
+            //title.getText().toString(),
+        }
         Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
         startActivity(intent);
         }
     }
 
-}
+
 
