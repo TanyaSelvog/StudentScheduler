@@ -48,6 +48,7 @@ public class AssessmentDetail extends AppCompatActivity {
             editEndDate = findViewById(R.id.editTD1);
             date = getIntent().getStringExtra("assessmentDate");
             editEndDate.setText(date);
+            courseID = getIntent().getIntExtra("courseID", courseID);
             repo = new Repository(getApplication());
 
             for (Assessment co : repo.getAllAssessments()) {

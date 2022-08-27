@@ -18,7 +18,7 @@ import mobile.app.development.studentscheduler.Entity.Course;
 import mobile.app.development.studentscheduler.R;
 
 public class AssessmentList extends AppCompatActivity {
-int assessmentID;
+int courseID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +51,7 @@ int assessmentID;
     }
     public void addNewAssessment(View view) {
         Intent intent = new Intent(AssessmentList.this, AssessmentDetail.class);
-        intent.putExtra("assessmentID", assessmentID);
+        intent.putExtra("courseID", courseID);
         startActivity(intent);
 
     }
