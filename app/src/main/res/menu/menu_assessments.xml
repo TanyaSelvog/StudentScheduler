@@ -5,6 +5,9 @@
         android:orderInCategory="100"
         android:id="@+id/saveAssessment"/>
 
+    <item android:title="Refresh"
+        android:orderInCategory="100"
+        android:id="@+id/refreshAssessment"/>
 
 
     <item android:title="Delete"
