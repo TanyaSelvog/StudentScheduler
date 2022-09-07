@@ -42,4 +42,8 @@ public class TermsList extends AppCompatActivity {
         Intent intent = new Intent(TermsList.this, TermDetail.class);
         startActivity(intent);
     }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        return true;
+    }
 }
