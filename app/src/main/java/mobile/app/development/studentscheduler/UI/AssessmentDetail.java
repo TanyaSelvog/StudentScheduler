@@ -85,7 +85,29 @@ public class AssessmentDetail extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R. id.saveAssessment:
+                radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+                int radioID=radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = (RadioButton) findViewById(radioID);
+                String radioTest=radioButton.getText().toString();
+                Assessment assessment;
 
+                if (assessmentID == -1) {
+                    int newID = repo.getAllAssessments().size();
+                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                    Toast.makeText(getApplicationContext(), radioTest+ "  has been saved" , Toast.LENGTH_LONG).show();
+                    repo.insert(assessment);
+                // delete (pending further review) 9/7/2022
+          //      }else {
+            //        assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+              //      Toast.makeText(AssessmentDetail.this, assessment.getAssessmentName() + " was updated.", Toast.LENGTH_LONG).show();
+                //    repo.update(assessment);
+                }
+             //   Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
+               // startActivity(intent);
+                Intent intent=new Intent(AssessmentDetail.this,CourseList.class);
+                startActivity(intent);
+                return true;
 
             case R.id.deleteAssessment:
 
@@ -109,7 +131,7 @@ public class AssessmentDetail extends AppCompatActivity {
             if (assessmentID == -1) {
                 int newID = repo.getAllAssessments().size();
                 assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
-                Toast.makeText(getApplicationContext(), radioTest+ "  has been saved" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), assessment.getAssessmentName()+ "  has been saved" , Toast.LENGTH_LONG).show();
                 repo.insert(assessment);
 
             }else {

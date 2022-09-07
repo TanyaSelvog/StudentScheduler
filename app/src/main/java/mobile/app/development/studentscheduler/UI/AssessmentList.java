@@ -49,10 +49,5 @@ int courseID;
         }
         return super.onOptionsItemSelected(item);
     }
-    public void addNewAssessment(View view) {
-        Intent intent = new Intent(AssessmentList.this, AssessmentDetail.class);
-        intent.putExtra("courseID", courseID);
-        startActivity(intent);
 
-    }
 }
