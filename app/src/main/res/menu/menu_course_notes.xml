@@ -13,6 +13,10 @@
         android:orderInCategory="100"
         android:id="@+id/notify"/>
 
+    <item android:title="Add New Assessment"
+        android:orderInCategory="100"
+        android:id="@+id/addAssessment"/>
+
     <item android:title="Delete Course"
         android:orderInCategory="100"
         android:id="@+id/deleteCourse"/>

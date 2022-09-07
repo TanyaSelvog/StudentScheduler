@@ -109,7 +109,7 @@ public class AssessmentDetail extends AppCompatActivity {
             if (assessmentID == -1) {
                 int newID = repo.getAllAssessments().size();
                 assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
-                Toast.makeText(getApplicationContext(), "Assessment has been saved" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), radioTest+ "  has been saved" , Toast.LENGTH_LONG).show();
                 repo.insert(assessment);
 
             }else {

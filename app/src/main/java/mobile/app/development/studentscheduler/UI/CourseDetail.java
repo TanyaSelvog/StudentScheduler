@@ -215,7 +215,14 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
                 return true;
 
-            case R.id.deleteCourse:
+            case R.id.addAssessment:
+
+                Intent intentAssessment = new Intent(CourseDetail.this, AssessmentDetail.class);
+                intentAssessment.putExtra("courseID", courseID);
+                startActivity(intentAssessment);
+                return true;
+
+                case R.id.deleteCourse:
                 if (assessmentCount != 0){
                     Toast.makeText(getApplicationContext(), "As", Toast.LENGTH_LONG).show();
                 }else {
