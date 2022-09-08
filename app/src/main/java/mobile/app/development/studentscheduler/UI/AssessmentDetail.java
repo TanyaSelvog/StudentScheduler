@@ -35,6 +35,7 @@ public class AssessmentDetail extends AppCompatActivity {
     int courseID;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
+    String test;
 
 
         @Override
@@ -61,14 +62,16 @@ public class AssessmentDetail extends AppCompatActivity {
 
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
-
+        //String test;
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.obj_btn:
                 if (checked)
+                    test = "Objective";
                     break;
             case R.id.perf_btn:
                 if (checked)
+                    test = "Performance";
                     // Ninjas rule
                     break;
         }
@@ -94,8 +97,8 @@ public class AssessmentDetail extends AppCompatActivity {
 
                 if (assessmentID == -1) {
                     int newID = repo.getAllAssessments().size();
-                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
-                    Toast.makeText(getApplicationContext(), radioTest+ "  has been saved" , Toast.LENGTH_LONG).show();
+                    assessment = new Assessment(newID, editTitle.getText().toString(), test, editEndDate.getText().toString(), courseID);
+                    Toast.makeText(getApplicationContext(), test+ "  has been saved" , Toast.LENGTH_LONG).show();
                     repo.insert(assessment);
                 // delete (pending further review) 9/7/2022
           //      }else {
