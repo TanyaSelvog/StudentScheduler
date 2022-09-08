@@ -97,8 +97,8 @@ public class AssessmentDetail extends AppCompatActivity {
 
                 if (assessmentID == -1) {
                     int newID = repo.getAllAssessments().size();
-                    assessment = new Assessment(newID, editTitle.getText().toString(), test, editEndDate.getText().toString(), courseID);
-                    Toast.makeText(getApplicationContext(), test+ "  has been saved" , Toast.LENGTH_LONG).show();
+                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                    Toast.makeText(getApplicationContext(), test+ " "+ courseID+ "  has been saved" , Toast.LENGTH_LONG).show();
                     repo.insert(assessment);
                 // delete (pending further review) 9/7/2022
           //      }else {
@@ -106,10 +106,9 @@ public class AssessmentDetail extends AppCompatActivity {
               //      Toast.makeText(AssessmentDetail.this, assessment.getAssessmentName() + " was updated.", Toast.LENGTH_LONG).show();
                 //    repo.update(assessment);
                 }
-             //   Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
-               // startActivity(intent);
-                Intent intent=new Intent(AssessmentDetail.this,CourseList.class);
-                startActivity(intent);
+               finish();
+    //            Intent intent=new Intent(AssessmentDetail.this,CourseDetail.class);
+      //          startActivity(intent);
                 return true;
 
             case R.id.deleteAssessment:
