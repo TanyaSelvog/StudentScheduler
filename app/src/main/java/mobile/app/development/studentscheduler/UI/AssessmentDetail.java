@@ -119,6 +119,7 @@ public class AssessmentDetail extends AppCompatActivity {
                     }
                     repo.delete(currentAssessment);
                     Toast.makeText(AssessmentDetail.this, "Assessment was deleted", Toast.LENGTH_LONG).show();
+
                 }}
         return super.onOptionsItemSelected(item);
         }
