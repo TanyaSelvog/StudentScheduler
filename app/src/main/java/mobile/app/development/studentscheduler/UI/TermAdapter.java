@@ -56,7 +56,9 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
         if(mTerms!=null){
             Term current = mTerms.get(position);
             String name=current.getTermName();
-            holder.termItemView.setText(name);
+            String endDate=current.getEndTermDate();
+            String start= current.getStartTermDate();
+            holder.termItemView.setText(name + " Start: " + start + " End: " + endDate);
         }
         else{
             holder.termItemView.setText("No term name");

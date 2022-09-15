@@ -26,7 +26,7 @@ public static int numAlert;
         Term termTest = new Term(1, "Spring 2022", "05/01/2022", "10/31/2022");
         Term termTest2 = new Term(2, "Fall 2022", "10/01/2022", "1/31/2023");
         Term test3 = new Term(3, "Spring 2023", "04/01/2023", "06/01/2023");
-        repo.insert(test3);
+        repo.insert(termTest);
     }
 
   /**  public void onTermsClick(View view) {

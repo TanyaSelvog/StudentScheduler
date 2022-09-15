@@ -96,9 +96,11 @@ public class AssessmentDetail extends AppCompatActivity {
                 Assessment assessment;
 
                 if (assessmentID == -1) {
-                    int newID = repo.getAllAssessments().size();
+                 int newID = repo.getAllAssessments().size();
+                //9.14.2022 test
+                 //   int newID = repo.getAllAssessments().get(repo.getAllAssessments().size() - 1).getAssessmentID() + 1;
                     assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
-                    Toast.makeText(getApplicationContext(), test+ " "+ courseID+ "  has been saved" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), test+ " "+ newID+ "  has been saved" , Toast.LENGTH_LONG).show();
                     repo.insert(assessment);
                 // delete (pending further review) 9/7/2022
           //      }else {
