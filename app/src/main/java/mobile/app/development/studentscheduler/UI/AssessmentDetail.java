@@ -56,7 +56,23 @@ public class AssessmentDetail extends AppCompatActivity {
                 if (co.getAssessmentID() == assessmentID) {
                     currentAssessment = co;
                 }
+
             }
+            String M = getIntent().getStringExtra("assessmentType");
+            RadioGroup rb1 = (RadioGroup)findViewById(R.id.radio_group);
+            RadioButton rbu1 =(RadioButton)findViewById(R.id.obj_btn);
+            RadioButton rbu2 =(RadioButton)findViewById(R.id.perf_btn);
+
+
+            if(M.equalsIgnoreCase("Objective"))
+            {
+                rbu1.setChecked(true);
+            }
+            else if(M.equalsIgnoreCase("Performance")){
+
+                rbu2.setChecked(true);
+            }
+
         }
     public void onRadioButtonClicked(View view) {
 
