@@ -52,26 +52,27 @@ public class AssessmentDetail extends AppCompatActivity {
             courseID = getIntent().getIntExtra("courseID", courseID);
             repo = new Repository(getApplication());
 
+            //      Info for assessment if already exists
             for (Assessment co : repo.getAllAssessments()) {
                 if (co.getAssessmentID() == assessmentID) {
                     currentAssessment = co;
+                    // Info for assessment if already exists
+                    String typeRadio = getIntent().getStringExtra("assessmentType");
+                    RadioGroup rb1 = (RadioGroup)findViewById(R.id.radio_group);
+                    RadioButton rbu1 =(RadioButton)findViewById(R.id.obj_btn);
+                    RadioButton rbu2 =(RadioButton)findViewById(R.id.perf_btn);
+                    if(typeRadio.equalsIgnoreCase("Objective"))
+                    {
+                        rbu1.setChecked(true);
+                    }
+                    else if(typeRadio.equalsIgnoreCase("Performance")){
+
+                        rbu2.setChecked(true);
+                    }
                 }
 
             }
-            String M = getIntent().getStringExtra("assessmentType");
-            RadioGroup rb1 = (RadioGroup)findViewById(R.id.radio_group);
-            RadioButton rbu1 =(RadioButton)findViewById(R.id.obj_btn);
-            RadioButton rbu2 =(RadioButton)findViewById(R.id.perf_btn);
 
-
-            if(M.equalsIgnoreCase("Objective"))
-            {
-                rbu1.setChecked(true);
-            }
-            else if(M.equalsIgnoreCase("Performance")){
-
-                rbu2.setChecked(true);
-            }
 
         }
     public void onRadioButtonClicked(View view) {
