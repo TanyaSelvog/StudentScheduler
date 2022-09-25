@@ -61,14 +61,12 @@ public class AssessmentDetail extends AppCompatActivity {
                     RadioGroup rb1 = (RadioGroup)findViewById(R.id.radio_group);
                     RadioButton rbu1 =(RadioButton)findViewById(R.id.obj_btn);
                     RadioButton rbu2 =(RadioButton)findViewById(R.id.perf_btn);
-                    if(typeRadio.equalsIgnoreCase("Objective"))
-                    {
-                        rbu1.setChecked(true);
-                    }
-                    else if(typeRadio.equalsIgnoreCase("Performance")){
-
-                        rbu2.setChecked(true);
-                    }
+                        if(typeRadio.equalsIgnoreCase("Objective")) {
+                            rbu1.setChecked(true);
+                        }
+                        else if(typeRadio.equalsIgnoreCase("Performance")){
+                            rbu2.setChecked(true);
+                        }
                 }
 
             }
