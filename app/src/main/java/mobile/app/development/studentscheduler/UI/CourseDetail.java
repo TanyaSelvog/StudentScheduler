@@ -177,7 +177,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
               Course course;
                 if (courseID == -1) {
                     int newID = repo.getAllCourses().size();
-                    course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
+                    course = new Course(newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
                             editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
 
                     repo.insert(course);
@@ -189,6 +189,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(getApplicationContext(), "Course has been updated.", Toast.LENGTH_LONG).show();
                     return true;
                 }
+              this.finish();
+              return true;
 
 
 
