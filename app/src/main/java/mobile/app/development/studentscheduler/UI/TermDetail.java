@@ -122,6 +122,12 @@ public class TermDetail extends AppCompatActivity {
                 partAdapter.setParts(filteredParts);
                 return true;
          */
+            case R.id.addCourse:
+            Intent intentAssessment = new Intent(TermDetail.this, CourseDetail.class);
+            intentAssessment.putExtra("termID", termID);
+            startActivity(intentAssessment);
+            return true;
+
             case R.id.deleteTerm:
                 for (Term term : repo.getAllTerms()){
                     if (term.getTermID() == termID) currentTerm = term;

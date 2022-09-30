@@ -10,4 +10,11 @@
         android:orderInCategory="100"
         android:id="@+id/deleteTerm"/>
 
+
+    <item android:title="Add New Course"
+        android:orderInCategory="100"
+        android:id="@+id/addCourse"/>
+
+
+
 </menu>
