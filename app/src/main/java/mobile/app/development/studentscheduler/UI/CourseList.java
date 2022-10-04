@@ -53,9 +53,5 @@ public class CourseList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addNewCourse(View view) {
-        Intent intentNewCourse = new Intent(CourseList.this, CourseDetail.class);
-        startActivity(intentNewCourse);
 
-    }
 }
