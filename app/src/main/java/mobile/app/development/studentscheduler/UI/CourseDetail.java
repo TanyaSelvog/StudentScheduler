@@ -67,7 +67,11 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_course_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        courseID = getIntent().getIntExtra("courseID", -1);
+      courseID = getIntent().getIntExtra("courseID", -1);
+
+        //@TODO TEST BEFORE editing 10.4
+        termID = getIntent().getIntExtra("termID", termID);
+
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
         editStartDate = findViewById(R.id.editStartDate);
@@ -243,12 +247,17 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
             int newID = repo.getAllCourses().size();
             course = new Course(++newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
                     editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
+
             repo.insert(course);
+            Toast.makeText(CourseDetail.this, "Course was added", Toast.LENGTH_LONG).show();
 
         }else {
                 course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
                       editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
+
+
                 repo.update(course);
+            Toast.makeText(CourseDetail.this, "Course was edited", Toast.LENGTH_LONG).show();
 
         }
         Intent intent=new Intent(CourseDetail.this,CourseList.class);
