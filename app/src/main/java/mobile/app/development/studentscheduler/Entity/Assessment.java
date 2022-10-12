@@ -11,6 +11,7 @@ public class Assessment {
     private String assessmentName;
     private String assessmentType;
     private String assessmentDate;
+    private String startAssessment;
     private int courseID;
 
     public String toString() {
@@ -18,6 +19,7 @@ public class Assessment {
                 "assessmentID=" + assessmentID +
                 ", assessmentName='" + assessmentName + '\'' +
                 ", assessmentType='" + assessmentType + '\'' +
+                ", startAssessment='" + startAssessment + '\'' +
                 ", assessmentDate='" + assessmentDate + '\'' +
                 ", courseID='" + courseID + '\'' +
                 '}';
@@ -58,6 +60,16 @@ public class Assessment {
         this.assessmentDate = assessmentDate;
     }
 
+    public String getStartAssessment(){
+        return startAssessment;
+    }
+
+
+
+    public void setStartAssessment(String startAssessment){
+        this.startAssessment = startAssessment;
+    }
+
     public int getCourseID(){
         return courseID;
     }
@@ -65,10 +77,11 @@ public class Assessment {
     public void setCourseID(int courseID){
         this.courseID = courseID;
     }
-    public Assessment(int assessmentID, String assessmentName, String assessmentType, String assessmentDate, int courseID) {
+    public Assessment(int assessmentID, String assessmentName, String assessmentType, String startAssessment, String assessmentDate, int courseID) {
         this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
         this.assessmentType = assessmentType;
+        this.startAssessment = startAssessment;
         this.assessmentDate = assessmentDate;
         this.courseID = courseID;
     }

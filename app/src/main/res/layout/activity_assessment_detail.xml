@@ -6,12 +6,39 @@
     android:layout_height="match_parent">
 
 
+    <TextView
+        android:id="@+id/end_date2"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="casual"
+        android:letterSpacing="0.2"
+        android:text="@string/startDate"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
+
     <EditText
-        android:id="@+id/editTD1"
+        android:id="@+id/endDateTV"
         android:layout_width="163dp"
         android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="136dp"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/end_date"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+    <EditText
+        android:id="@+id/startDateTV"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:inputType="date"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/end_date"
         app:layout_constraintTop_toBottomOf="@id/radio_group" />
@@ -102,8 +129,8 @@
         android:id="@+id/end_date"
         android:layout_width="145dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="136dp"
         android:fontFamily="casual"
         android:letterSpacing="0.2"
         android:text="@string/endDate"
@@ -117,11 +144,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/save"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:onClick="saveButtonOnClick"
+        android:text="@string/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTD1" />
+        app:layout_constraintTop_toBottomOf="@+id/end_date" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

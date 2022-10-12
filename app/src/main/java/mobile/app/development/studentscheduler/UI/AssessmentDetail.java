@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import mobile.app.development.studentscheduler.DB.Repository;
@@ -35,7 +36,10 @@ public class AssessmentDetail extends AppCompatActivity {
     int courseID;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
+    SimpleDateFormat sdf;
     String test;
+    String startDateTest;
+    TextView start;
 
 
         @Override
@@ -46,9 +50,16 @@ public class AssessmentDetail extends AppCompatActivity {
             title = getIntent().getStringExtra("assessmentName");
             editTitle.setText(title);
             assessmentID = getIntent().getIntExtra("assessmentID", -1);
-            editEndDate = findViewById(R.id.editTD1);
+
+            start= findViewById(R.id.startDateTV);
+            startDateTest=getIntent().getStringExtra("startAssessment");
+            start.setText(startDateTest);
+
+            editEndDate = findViewById(R.id.endDateTV);
             date = getIntent().getStringExtra("assessmentDate");
             editEndDate.setText(date);
+
+
             courseID = getIntent().getIntExtra("courseID", courseID);
             repo = new Repository(getApplication());
 
@@ -114,7 +125,8 @@ public class AssessmentDetail extends AppCompatActivity {
                  int newID = repo.getAllAssessments().size();
                 //9.14.2022 test
                  //   int newID = repo.getAllAssessments().get(repo.getAllAssessments().size() - 1).getAssessmentID() + 1;
-                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                            editEndDate.getText().toString(), courseID);
                     Toast.makeText(getApplicationContext(), test+ " "+ newID+ "  has been saved" , Toast.LENGTH_LONG).show();
                     repo.insert(assessment);
                 // delete (pending further review) 9/7/2022
@@ -127,7 +139,21 @@ public class AssessmentDetail extends AppCompatActivity {
     //            Intent intent=new Intent(AssessmentDetail.this,CourseDetail.class);
       //          startActivity(intent);
                 return true;
-
+            case R.id.notify:
+                String dateFromScreen = editEndDate.getText().toString();
+                Date myDate=null;
+                try {
+                    myDate = sdf.parse(dateFromScreen);
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
+                Long trigger = myDate.getTime();
+                Intent intent = new Intent(AssessmentDetail.this, MyReceiver.class);
+                intent.putExtra("key", "messageIWantToSend");
+                PendingIntent sender=PendingIntent.getBroadcast(AssessmentDetail.this,MainActivity.numAlert++, intent, 0);
+                AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
+                return true;
             case R.id.deleteAssessment:
 
                 for (Assessment co : repo.getAllAssessments()) {
@@ -150,12 +176,14 @@ public class AssessmentDetail extends AppCompatActivity {
 
             if (assessmentID == -1) {
                 int newID = repo.getAllAssessments().size();
-                assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                        editEndDate.getText().toString(), courseID);
                 Toast.makeText(getApplicationContext(), assessment.getAssessmentName()+ "  has been saved" , Toast.LENGTH_LONG).show();
                 repo.insert(assessment);
 
             }else {
-                assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, editEndDate.getText().toString(), courseID);
+                assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                        editEndDate.getText().toString(), courseID);
                 Toast.makeText(AssessmentDetail.this, assessment.getAssessmentName() + " was updated.", Toast.LENGTH_LONG).show();
                 repo.update(assessment);
             }

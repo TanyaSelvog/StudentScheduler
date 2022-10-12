@@ -277,7 +277,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         parent.getItemAtPosition(pos);
         //used for getting item and then to display it on screen with code below (but in final project - dont need)
         String item = parent.getItemAtPosition(pos).toString();
-
+     //   textStat.setText(item);
         // Showing selected spinner item
         //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
