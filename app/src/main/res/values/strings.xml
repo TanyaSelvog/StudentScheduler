@@ -12,6 +12,7 @@
     <string name="courseInstructor">Instructor</string>
     <string name="instructorPhone">Phone</string>
     <string name="instructorEmail">Email</string>
+    <string name="currentStat">Current Status:</string>
     <string name="assessment_type">Assessment Type</string>
     <string name="objective">Objective</string>
     <string name="performance">Performance</string>

@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -41,10 +42,11 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     EditText editInstructor;
     EditText editEmail;
     EditText title_edit;
+    EditText textStat;
     EditText editNote;
     String note;
     Spinner status;
-    int statusCourse;
+    String statusCourse;
     String title;
     String phone;
     String startDate;
@@ -67,7 +69,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_course_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-      courseID = getIntent().getIntExtra("courseID", -1);
+        courseID = getIntent().getIntExtra("courseID", -1);
 
         //@TODO TEST BEFORE editing 10.4
         termID = getIntent().getIntExtra("termID", termID);
@@ -75,8 +77,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
         editStartDate = findViewById(R.id.editStartDate);
-         myFormat = "MM/dd/yy";
-         sdf = new SimpleDateFormat(myFormat, Locale.US);
+        myFormat = "MM/dd/yy";
+        sdf = new SimpleDateFormat(myFormat, Locale.US);
         editStartDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -108,6 +110,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         editInstructor = findViewById(R.id.editInstructor);
         editEmail = findViewById(R.id.editEmail);
         editNote = findViewById(R.id.editNote);
+        textStat=findViewById(R.id.textStat);
 
         phone = getIntent().getStringExtra("phone");
         editTextPhone.setText(phone);
@@ -123,6 +126,10 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         endDate = getIntent().getStringExtra("endCourseDate");
         editEndDate.setText(endDate);
+
+
+        statusCourse = getIntent().getStringExtra("status");
+        textStat.setText(statusCourse);
 
         instructor = getIntent().getStringExtra("instructorName");
         editInstructor.setText(instructor);
@@ -148,18 +155,18 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         status = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.status_array, android.R.layout.simple_spinner_item);
         status.setAdapter(adapter);
-      //  status.setSelection(status);
+        //  status.setSelection(status);
 
 
-    //    Spinner spinner = findViewById(R.id.spinner);
-      //  spinner.setOnItemSelectedListener(this);
+        //    Spinner spinner = findViewById(R.id.spinner);
+        //  spinner.setOnItemSelectedListener(this);
 
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //adapter.getDropDownView(int position, View convertView, ViewGroup parent);
 
 // Apply the adapter to the spinner
-     //   spinner.setAdapter(adapter);
+        //   spinner.setAdapter(adapter);
 
         //Course Menu
     }
@@ -207,7 +214,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
-           case R.id.notify:
+            case R.id.notify:
                 String dateFromScreen = editStartDate.getText().toString();
                 Date myDate=null;
                 try {
@@ -230,13 +237,13 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intentAssessment);
                 return true;
 
-                case R.id.deleteCourse:
+            case R.id.deleteCourse:
                 if (assessmentCount != 0){
                     Toast.makeText(getApplicationContext(), "As", Toast.LENGTH_LONG).show();
                 }else {
                     repo.delete(currentCourse);
                     Toast.makeText(CourseDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
-        }}
+                }}
         return super.onOptionsItemSelected(item);
     }
 
@@ -252,18 +259,18 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
             Toast.makeText(CourseDetail.this, "Course was added", Toast.LENGTH_LONG).show();
 
         }else {
-                course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
-                      editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
+            course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
+                    editTextPhone.getText().toString(),editEmail.getText().toString(),  status.getSelectedItem().toString(),editNote.getText().toString());
 
 
-                repo.update(course);
-                Toast.makeText(CourseDetail.this, "Course was edited", Toast.LENGTH_LONG).show();
+            repo.update(course);
+            Toast.makeText(CourseDetail.this, "Course was edited", Toast.LENGTH_LONG).show();
 
         }
         Intent intent=new Intent(CourseDetail.this,CourseList.class);
         startActivity(intent);
 
-        }
+    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // An item was selected. You can retrieve the selected item using
@@ -272,7 +279,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         String item = parent.getItemAtPosition(pos).toString();
 
         // Showing selected spinner item
-     //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
     }
 

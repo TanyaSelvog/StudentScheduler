@@ -67,7 +67,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             String name=current.getCourseTitle();
             //added test to see if it would work
             String test = current.getEndCourseDate();
-            int t = current.getTermID();
+            String t = current.getStatus();
             holder.courseItemView.setText(name + " " + test + " " + t);
         }
         else{
