@@ -22,7 +22,7 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
     private final TextView assessmentItemView;
     private AssessmentViewHolder(View itemView){
     super(itemView);
-    assessmentItemView =itemView.findViewById(R.id.textView4);
+    assessmentItemView =itemView.findViewById(R.id.assessmentListItem);
     itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -34,7 +34,6 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
             intent.putExtra("assessmentDate", currentAssessment.getAssessmentDate());
             intent.putExtra("assessmentID", currentAssessment.getAssessmentID());
             intent.putExtra("courseID", currentAssessment.getCourseID());
-            //added 9.23 while @GHC; look at once home
             intent.putExtra("assessmentType", currentAssessment.getAssessmentType());
             contextAssessment.startActivity(intent);
 
@@ -61,8 +60,9 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
                 Assessment current = mAssessment.get(position);
                 //NEED TO CHNAGE THIS
                 String name = current.getAssessmentName();
+                String tName = current.getStartAssessment();
                 int id = current.getAssessmentID();
-                holder.assessmentItemView.setText("Name " + name);
+                holder.assessmentItemView.setText("Name " + tName);
             } else {
                 holder.assessmentItemView.setText("No course name");
             }

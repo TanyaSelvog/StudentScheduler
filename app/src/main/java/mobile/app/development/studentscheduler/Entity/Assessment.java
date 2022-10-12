@@ -10,8 +10,8 @@ public class Assessment {
     private int assessmentID;
     private String assessmentName;
     private String assessmentType;
-    private String assessmentDate;
     private String startAssessment;
+    private String assessmentDate;
     private int courseID;
 
     public String toString() {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,8 +26,8 @@ import mobile.app.development.studentscheduler.Entity.Course;
 import mobile.app.development.studentscheduler.R;
 
 public class AssessmentDetail extends AppCompatActivity {
-    TextView editTitle;
-    TextView editEndDate;
+    EditText editTitle;
+    EditText editEndDate;
     String title;
     String date;
     String testType;
@@ -39,7 +40,7 @@ public class AssessmentDetail extends AppCompatActivity {
     SimpleDateFormat sdf;
     String test;
     String startDateTest;
-    TextView start;
+    EditText startDateTV;
 
 
         @Override
@@ -51,9 +52,9 @@ public class AssessmentDetail extends AppCompatActivity {
             editTitle.setText(title);
             assessmentID = getIntent().getIntExtra("assessmentID", -1);
 
-            start= findViewById(R.id.startDateTV);
-            startDateTest=getIntent().getStringExtra("startAssessment");
-            start.setText(startDateTest);
+            startDateTV= findViewById(R.id.startDateTV);
+            startDateTest = getIntent().getStringExtra("assessmentStart");
+            startDateTV.setText(startDateTest);
 
             editEndDate = findViewById(R.id.endDateTV);
             date = getIntent().getStringExtra("assessmentDate");
@@ -125,7 +126,7 @@ public class AssessmentDetail extends AppCompatActivity {
                  int newID = repo.getAllAssessments().size();
                 //9.14.2022 test
                  //   int newID = repo.getAllAssessments().get(repo.getAllAssessments().size() - 1).getAssessmentID() + 1;
-                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                    assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, startDateTV.getText().toString(),
                             editEndDate.getText().toString(), courseID);
                     Toast.makeText(getApplicationContext(), test+ " "+ newID+ "  has been saved" , Toast.LENGTH_LONG).show();
                     repo.insert(assessment);
@@ -176,13 +177,13 @@ public class AssessmentDetail extends AppCompatActivity {
 
             if (assessmentID == -1) {
                 int newID = repo.getAllAssessments().size();
-                assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                assessment = new Assessment(newID, editTitle.getText().toString(), radioTest, startDateTV.getText().toString(),
                         editEndDate.getText().toString(), courseID);
                 Toast.makeText(getApplicationContext(), assessment.getAssessmentName()+ "  has been saved" , Toast.LENGTH_LONG).show();
                 repo.insert(assessment);
 
             }else {
-                assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, start.getText().toString(),
+                assessment = new Assessment(assessmentID, editTitle.getText().toString(), radioTest, startDateTV.getText().toString(),
                         editEndDate.getText().toString(), courseID);
                 Toast.makeText(AssessmentDetail.this, assessment.getAssessmentName() + " was updated.", Toast.LENGTH_LONG).show();
                 repo.update(assessment);
