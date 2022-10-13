@@ -1,6 +1,7 @@
 package mobile.app.development.studentscheduler.UI;
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,7 +20,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import mobile.app.development.studentscheduler.DB.Repository;
 import mobile.app.development.studentscheduler.Entity.Assessment;
@@ -42,6 +46,10 @@ public class AssessmentDetail extends AppCompatActivity {
     String startDateTest;
     EditText startDateTV;
 
+    DatePickerDialog.OnDateSetListener sDate;
+    final Calendar myCalendarStart = Calendar.getInstance();
+    String myFormat;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +63,40 @@ public class AssessmentDetail extends AppCompatActivity {
             startDateTV= findViewById(R.id.startDateTV);
             startDateTest = getIntent().getStringExtra("assessmentStart");
             startDateTV.setText(startDateTest);
+
+            myFormat = "MM/dd/yy";
+            sdf = new SimpleDateFormat(myFormat, Locale.US);
+            startDateTV.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Date date;
+                    String info = startDateTV.getText().toString();
+                    if (info.equals("")) info = "02/10/22";
+                    try {
+                        myCalendarStart.setTime(sdf.parse(info));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    new DatePickerDialog(AssessmentDetail.this, sDate, myCalendarStart
+                            .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                            myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+                }
+            });
+            sDate = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                    myCalendarStart.set(Calendar.YEAR, year);
+                    myCalendarStart.set(Calendar.MONTH, monthOfYear);
+                    myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    updateLabelStart();
+                }
+            };
+
+
+
+
+
 
             editEndDate = findViewById(R.id.endDateTV);
             date = getIntent().getStringExtra("assessmentDate");
@@ -140,21 +182,39 @@ public class AssessmentDetail extends AppCompatActivity {
     //            Intent intent=new Intent(AssessmentDetail.this,CourseDetail.class);
       //          startActivity(intent);
                 return true;
-            case R.id.notify:
-                String dateFromScreen = editEndDate.getText().toString();
-                Date myDate=null;
+
+            case R.id.alertStart:
+                String dateFromScreen = startDateTV.getText().toString();
+                Date startDateAlert=null;
                 try {
-                    myDate = sdf.parse(dateFromScreen);
+                    startDateAlert = sdf.parse(dateFromScreen);
                 }catch (ParseException e){
                     e.printStackTrace();
                 }
-                Long trigger = myDate.getTime();
+                Long trigger = startDateAlert.getTime();
                 Intent intent = new Intent(AssessmentDetail.this, MyReceiver.class);
-                intent.putExtra("key", "messageIWantToSend");
+                intent.putExtra("key", "The assessment: " + title + " is on: " + dateFromScreen);
                 PendingIntent sender=PendingIntent.getBroadcast(AssessmentDetail.this,MainActivity.numAlert++, intent, 0);
                 AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
                 return true;
+            case R.id.alertEnd:
+                String dfs = editEndDate.getText().toString();
+                Date endDateAlert=null;
+                try {
+                    endDateAlert= sdf.parse(dfs);
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
+                Long longTrigger = endDateAlert.getTime();
+                Intent in = new Intent(AssessmentDetail.this, MyReceiver.class);
+                in.putExtra("key", "The assessment: " + title + " is on: " + dfs);
+                PendingIntent senderI=PendingIntent.getBroadcast(AssessmentDetail.this,MainActivity.numAlert++, in, 0);
+                AlarmManager aM=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                aM.set(AlarmManager.RTC_WAKEUP,longTrigger, senderI);
+                return true;
+
+
             case R.id.deleteAssessment:
 
                 for (Assessment co : repo.getAllAssessments()) {
@@ -191,6 +251,10 @@ public class AssessmentDetail extends AppCompatActivity {
         Intent intent=new Intent(AssessmentDetail.this,AssessmentList.class);
         startActivity(intent);
         }
+
+    private void updateLabelStart(){
+        startDateTV.setText(sdf.format(myCalendarStart.getTime()));
+    }
     }
 
 

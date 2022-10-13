@@ -214,7 +214,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
-            case R.id.notify:
+
+            case R.id.startDateAlert:
                 String dateFromScreen = editStartDate.getText().toString();
                 Date myDate=null;
                 try {
@@ -224,10 +225,25 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 }
                 Long trigger = myDate.getTime();
                 Intent intent = new Intent(CourseDetail.this, MyReceiver.class);
-                intent.putExtra("key", "messageIWantToSend");
+                intent.putExtra("key", "The course: " + title + " starts on: " + dateFromScreen);
                 PendingIntent sender=PendingIntent.getBroadcast(CourseDetail.this,MainActivity.numAlert++, intent, 0);
                 AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
+                return true;
+            case R.id.endDateAlert:
+                String dateScreen = editEndDate.getText().toString();
+                Date dateMine=null;
+                try {
+                    dateMine = sdf.parse(dateScreen);
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
+                Long triggerLong = dateMine.getTime();
+                Intent in = new Intent(CourseDetail.this, MyReceiver.class);
+                in.putExtra("key", "The course: " + title + " ends on: " + dateScreen);
+                PendingIntent senderIntent=PendingIntent.getBroadcast(CourseDetail.this,MainActivity.numAlert++, in, 0);
+                AlarmManager a=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                a.set(AlarmManager.RTC_WAKEUP,triggerLong, senderIntent);
                 return true;
 
             case R.id.addAssessment:
@@ -277,7 +293,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         parent.getItemAtPosition(pos);
         //used for getting item and then to display it on screen with code below (but in final project - dont need)
         String item = parent.getItemAtPosition(pos).toString();
-     //   textStat.setText(item);
+        //   textStat.setText(item);
         // Showing selected spinner item
         //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 

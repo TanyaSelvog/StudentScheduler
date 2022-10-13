@@ -7,9 +7,13 @@
         android:orderInCategory="100"
         android:id="@+id/shareNote"/>
 
-    <item android:title="Set Alerts"
+    <item android:title="Start Date Alert"
         android:orderInCategory="100"
-        android:id="@+id/notify"/>
+        android:id="@+id/startDateAlert"/>
+
+    <item android:title="End Date Alert"
+        android:orderInCategory="100"
+        android:id="@+id/endDateAlert"/>
 
     <item android:title="Add New Assessment"
         android:orderInCategory="100"

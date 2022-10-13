@@ -10,11 +10,17 @@
         android:id="@+id/refreshAssessment"/>
 
 
+    <item android:title="Start Date Alert"
+        android:orderInCategory="100"
+        android:id="@+id/alertStart"/>
+
+    <item android:title="End Date Alert"
+        android:orderInCategory="100"
+        android:id="@+id/alertEnd"/>
+
+
+
     <item android:title="Delete"
         android:orderInCategory="100"
         android:id="@+id/deleteAssessment"/>
-
-    <item android:title="Set Alert"
-        android:orderInCategory="100"
-        android:id="@+id/alertAssessment"/>
 </menu>
