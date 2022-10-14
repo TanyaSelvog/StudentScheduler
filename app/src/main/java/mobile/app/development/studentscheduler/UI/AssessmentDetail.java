@@ -193,7 +193,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 }
                 Long trigger = startDateAlert.getTime();
                 Intent intent = new Intent(AssessmentDetail.this, MyReceiver.class);
-                intent.putExtra("key", "The assessment: " + title + " is on: " + dateFromScreen);
+                intent.putExtra("key", "The assessment: " + title + " has a start date of: " + dateFromScreen);
                 PendingIntent sender=PendingIntent.getBroadcast(AssessmentDetail.this,MainActivity.numAlert++, intent, 0);
                 AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger, sender);
@@ -208,7 +208,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 }
                 Long longTrigger = endDateAlert.getTime();
                 Intent in = new Intent(AssessmentDetail.this, MyReceiver.class);
-                in.putExtra("key", "The assessment: " + title + " is on: " + dfs);
+                in.putExtra("key", "The assessment: " + title + " has an end date of: " + dfs);
                 PendingIntent senderI=PendingIntent.getBroadcast(AssessmentDetail.this,MainActivity.numAlert++, in, 0);
                 AlarmManager aM=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 aM.set(AlarmManager.RTC_WAKEUP,longTrigger, senderI);

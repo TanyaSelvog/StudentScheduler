@@ -14,10 +14,7 @@
             android:enabled="true"
             android:exported="true"></receiver>
 
-        <activity
-            android:name=".UI.NewTerms"
-            android:exported="false"
-            android:label="Add New Term" />
+
         <activity
             android:name=".UI.NewCourse"
             android:exported="false"
