@@ -7,17 +7,17 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="159dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
         android:background="#3F51B5"
-        android:textColor="#FFFFFF"
         android:fontFamily="casual"
         android:gravity="center"
         android:letterSpacing="0.2"
         android:text="@string/endDate"
         android:textAllCaps="true"
+        android:textColor="#FFFFFF"
 
         android:textSize="18sp"
         android:textStyle="bold"
@@ -26,21 +26,22 @@
 
     <EditText
         android:id="@+id/editStartDate"
-        android:layout_width="161dp"
-        android:layout_height="53dp"
+        android:layout_width="160dp"
+        android:layout_height="58dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="36dp"
-        android:textSize="16sp"
         android:hint="@string/startDate"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="156dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="56dp"
+        android:layout_marginEnd="14dp"
         android:background="#3F51B5"
         android:fontFamily="casual"
         android:gravity="center"
@@ -50,25 +51,26 @@
         android:textColor="#FFFFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/editTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTitle"
-        android:layout_width="171dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="34dp"
-        android:inputType="text"
+        android:layout_width="160dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="36dp"
         android:hint="@string/title"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="160dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="28dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
         android:background="#3F51B5"
         android:fontFamily="casual"
@@ -85,10 +87,10 @@
     <EditText
         android:id="@+id/editEndDate"
         android:layout_width="162dp"
-        android:layout_height="70dp"
+        android:layout_height="58dp"
         android:layout_marginTop="28dp"
-        android:hint="@string/endDate"
         android:layout_marginEnd="36dp"
+        android:hint="@string/endDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editStartDate" />
 
@@ -105,11 +107,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/partrecyclerview"
-        android:layout_width="371dp"
+        android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="25dp"
-        android:background="#D4BED8"
+        android:layout_marginEnd="36dp"
+        android:background="#9c27b0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

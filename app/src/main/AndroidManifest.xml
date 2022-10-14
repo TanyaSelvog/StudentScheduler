@@ -15,10 +15,7 @@
             android:exported="true"></receiver>
 
 
-        <activity
-            android:name=".UI.NewCourse"
-            android:exported="false"
-            android:label="Add New Course" />
+
 
         <activity
             android:name=".UI.AssessmentList"
