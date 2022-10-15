@@ -18,6 +18,7 @@
     <string name="performance">Performance</string>
     <string name="save">Save</string>
     <string name="note">Notes</string>
+    <string name="coursesTerm">Courses in Term</string>
     <string-array name="status_array">
         <item>In Progress</item>
         <item>Completed</item>
