@@ -62,9 +62,9 @@ public class AssessmentAdapter  extends RecyclerView.Adapter<AssessmentAdapter.A
                 String name = current.getAssessmentName();
                 String tName = current.getStartAssessment();
                 int id = current.getAssessmentID();
-                holder.assessmentItemView.setText("Name " + tName);
+                holder.assessmentItemView.setText(name);
             } else {
-                holder.assessmentItemView.setText("No course name");
+                holder.assessmentItemView.setText("No assessment name");
             }
         }
 

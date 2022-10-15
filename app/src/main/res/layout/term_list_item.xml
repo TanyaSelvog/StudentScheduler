@@ -7,13 +7,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="404dp"
+        android:layout_height="30dp"
         android:background="@color/white"
+        android:elegantTextHeight="false"
+        android:fadingEdge="none"
+        android:focusedByDefault="false"
+        android:singleLine="false"
         android:text="TextView"
         android:textColor="#3f51b5"
         android:textSize="16sp"
-        android:textStyle="bold"
+        android:textStyle="normal|bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

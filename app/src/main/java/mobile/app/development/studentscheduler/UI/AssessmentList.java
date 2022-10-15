@@ -35,12 +35,12 @@ int courseID;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setAssessments(assessments);
     }
-
+/**
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_assessments, menu);
         return true;
     }
-
+*/
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:

@@ -255,7 +255,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
             case R.id.deleteCourse:
                 if (assessmentCount != 0){
-                    Toast.makeText(getApplicationContext(), "As", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Course has an associated assessment. Course can't be deleted.", Toast.LENGTH_LONG).show();
                 }else {
                     repo.delete(currentCourse);
                     Toast.makeText(CourseDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
@@ -272,7 +272,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                     editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
 
             repo.insert(course);
-            Toast.makeText(CourseDetail.this, "Course was added", Toast.LENGTH_LONG).show();
+            Toast.makeText(CourseDetail.this, "Course was added.", Toast.LENGTH_LONG).show();
 
         }else {
             course = new Course(courseID, termID, title_edit.getText().toString(),editInstructor.getText().toString(),editStartDate.getText().toString(), editEndDate.getText().toString(),
@@ -280,7 +280,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
 
             repo.update(course);
-            Toast.makeText(CourseDetail.this, "Course was edited", Toast.LENGTH_LONG).show();
+            Toast.makeText(CourseDetail.this, "Course was edited.", Toast.LENGTH_LONG).show();
 
         }
         Intent intent=new Intent(CourseDetail.this,CourseList.class);
