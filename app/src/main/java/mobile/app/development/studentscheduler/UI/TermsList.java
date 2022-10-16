@@ -37,7 +37,14 @@ public class TermsList extends AppCompatActivity {
 
     }
 
-
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     public void addNewTerm(View view) {
         Intent intent = new Intent(TermsList.this, TermDetail.class);
         startActivity(intent);

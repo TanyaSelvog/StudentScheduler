@@ -224,7 +224,13 @@ public class AssessmentDetail extends AppCompatActivity {
                     repo.delete(currentAssessment);
                     Toast.makeText(AssessmentDetail.this, "Assessment was deleted", Toast.LENGTH_LONG).show();
 
-                }}
+                }
+                Intent intent1=new Intent(AssessmentDetail.this,AssessmentList.class);
+                startActivity(intent1);
+                return true;
+
+        }
+
         return super.onOptionsItemSelected(item);
         }
 

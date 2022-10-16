@@ -142,7 +142,10 @@ public class TermDetail extends AppCompatActivity {
                 }else {
                     Toast.makeText(TermDetail.this, "Can't delete a term with courses", Toast.LENGTH_LONG).show();
                 }
+                Intent intent=new Intent(TermDetail.this,TermsList.class);
+                startActivity(intent);
             return true;
+
 
 
 
