@@ -259,7 +259,10 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 }else {
                     repo.delete(currentCourse);
                     Toast.makeText(CourseDetail.this, "Course was deleted", Toast.LENGTH_LONG).show();
-                }}
+                }
+                Intent intent1=new Intent(CourseDetail.this,CourseList.class);
+                startActivity(intent1);
+        return true;}
         return super.onOptionsItemSelected(item);
     }
 
