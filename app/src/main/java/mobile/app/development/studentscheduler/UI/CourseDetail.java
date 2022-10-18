@@ -58,6 +58,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     DatePickerDialog.OnDateSetListener sDate;
     final Calendar myCalendarStart = Calendar.getInstance();
     String myFormat;
+    String myFormat1;
     SimpleDateFormat sdf;
     Course currentCourse;
     int assessmentCount;
@@ -76,37 +77,55 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
+
+
         editStartDate = findViewById(R.id.editStartDate);
         myFormat = "MM/dd/yy";
         sdf = new SimpleDateFormat(myFormat, Locale.US);
-        editStartDate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Date date;
-                String info = editStartDate.getText().toString();
-                if (info.equals("")) info = "02/10/22";
-                try {
-                    myCalendarStart.setTime(sdf.parse(info));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
-                        .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
-                        myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+        editStartDate.setOnClickListener(v -> {
+            Date date;
+            String info = editStartDate.getText().toString();
+            if (info.equals("")) info = "02/10/22";
+            try {
+                myCalendarStart.setTime(sdf.parse(info));
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
+            new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
+                    .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                    myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            });
+        sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
+            myCalendarStart.set(Calendar.YEAR, year);
+            myCalendarStart.set(Calendar.MONTH, monthOfYear);
+            myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabelStart();
+        };
+        //TODO --- FIX date with course details
+        editEndDate = findViewById(R.id.editEndDate);
+        myFormat1 = "MM/dd/yy";
+        sdf = new SimpleDateFormat(myFormat1, Locale.US);
+        editEndDate.setOnClickListener(v -> {
+            Date date;
+            String info1 = editEndDate.getText().toString();
+            if (info1.equals("")) info1 = "02/10/22";
+            try {
+                myCalendarStart.setTime(sdf.parse(info1));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
+                    .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                    myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
         });
-        sDate = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                myCalendarStart.set(Calendar.YEAR, year);
-                myCalendarStart.set(Calendar.MONTH, monthOfYear);
-                myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabelStart();
-            }
+        sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
+            myCalendarStart.set(Calendar.YEAR, year);
+            myCalendarStart.set(Calendar.MONTH, monthOfYear);
+            myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabelStart();
         };
 
-        editEndDate = findViewById(R.id.editEndDate);
+
         editInstructor = findViewById(R.id.editInstructor);
         editEmail = findViewById(R.id.editEmail);
         editNote = findViewById(R.id.editNote);
@@ -170,7 +189,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
 
         //Course Menu
     }
-    private void updateLabelStart(){
+    public void updateLabelStart(){
         editStartDate.setText(sdf.format(myCalendarStart.getTime()));
     }
     public boolean onCreateOptionsMenu(Menu menu) {

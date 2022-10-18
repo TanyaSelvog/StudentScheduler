@@ -42,7 +42,9 @@ public class AssessmentDetail extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioButton;
     SimpleDateFormat sdf;
+    SimpleDateFormat endDateSDF;
     String test;
+    String myFormat1;
     String startDateTest;
     EditText startDateTV;
 
@@ -66,42 +68,50 @@ public class AssessmentDetail extends AppCompatActivity {
 
             myFormat = "MM/dd/yy";
             sdf = new SimpleDateFormat(myFormat, Locale.US);
-            startDateTV.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    Date date;
-                    String info = startDateTV.getText().toString();
-                    if (info.equals("")) info = "02/10/22";
-                    try {
-                        myCalendarStart.setTime(sdf.parse(info));
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    new DatePickerDialog(AssessmentDetail.this, sDate, myCalendarStart
-                            .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
-                            myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            startDateTV.setOnClickListener(v -> {
+                Date date;
+                String info = startDateTV.getText().toString();
+                if (info.equals("")) info = "02/10/22";
+                try {
+                    myCalendarStart.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
+                new DatePickerDialog(AssessmentDetail.this, sDate, myCalendarStart
+                        .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                        myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
             });
-            sDate = new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                    myCalendarStart.set(Calendar.YEAR, year);
-                    myCalendarStart.set(Calendar.MONTH, monthOfYear);
-                    myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    updateLabelStart();
-                }
+            sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
+                myCalendarStart.set(Calendar.YEAR, year);
+                myCalendarStart.set(Calendar.MONTH, monthOfYear);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelStart();
             };
-
-
-
-
-
 
             editEndDate = findViewById(R.id.endDateTV);
             date = getIntent().getStringExtra("assessmentDate");
             editEndDate.setText(date);
-
+            myFormat1 = "MM/dd/yy";
+            sdf = new SimpleDateFormat(myFormat1, Locale.US);
+            editEndDate.setOnClickListener(v -> {
+                Date date;
+                String info1 = editEndDate.getText().toString();
+                if (info1.equals("")) info1 = "02/10/22";
+                try {
+                    myCalendarStart.setTime(sdf.parse(info1));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(AssessmentDetail.this, sDate, myCalendarStart
+                        .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                        myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            });
+            sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
+                myCalendarStart.set(Calendar.YEAR, year);
+                myCalendarStart.set(Calendar.MONTH, monthOfYear);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelStart();
+            };
 
             courseID = getIntent().getIntExtra("courseID", courseID);
             repo = new Repository(getApplication());
@@ -202,7 +212,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 String dfs = editEndDate.getText().toString();
                 Date endDateAlert=null;
                 try {
-                    endDateAlert= sdf.parse(dfs);
+                    endDateAlert= endDateSDF.parse(dfs);
                 }catch (ParseException e){
                     e.printStackTrace();
                 }
