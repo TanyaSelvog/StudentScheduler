@@ -17,6 +17,7 @@
     <string name="objective">Objective</string>
     <string name="performance">Performance</string>
     <string name="save">Save</string>
+    <string name="home">Home</string>
     <string name="note">Notes</string>
     <string name="coursesTerm">Courses in Term</string>
     <string-array name="status_array">

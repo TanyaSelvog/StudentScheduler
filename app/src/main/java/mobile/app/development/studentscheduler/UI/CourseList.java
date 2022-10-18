@@ -54,4 +54,8 @@ public class CourseList extends AppCompatActivity {
     }
 
 
+    public void onHomeClick(View view) {
+        Intent intent=new Intent(CourseList.this,MainActivity.class);
+        startActivity(intent);
+    }
 }

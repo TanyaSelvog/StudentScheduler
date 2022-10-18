@@ -9,9 +9,20 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview2"
-        android:layout_width="410dp"
-        android:layout_height="625dp"
+        android:layout_width="403dp"
+        android:layout_height="534dp"
         android:background="#FEFEFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="124dp"
+        android:onClick="onHomeClick"
+        android:text="@string/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
