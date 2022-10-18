@@ -50,4 +50,8 @@ int courseID;
         return super.onOptionsItemSelected(item);
     }
 
+    public void onHomeClick(View view) {
+        Intent intent=new Intent(AssessmentList.this,MainActivity.class);
+        startActivity(intent);
+    }
 }
