@@ -57,9 +57,12 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
     int courseID;
     DatePickerDialog.OnDateSetListener sDate;
     final Calendar myCalendarStart = Calendar.getInstance();
+    DatePickerDialog.OnDateSetListener eDate;
+    final Calendar myCalendarEnd = Calendar.getInstance();
     String myFormat;
     String myFormat1;
     SimpleDateFormat sdf;
+    SimpleDateFormat simpleDF;
     Course currentCourse;
     int assessmentCount;
     int termID;
@@ -111,25 +114,25 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         //TODO --- FIX date with course details
         editEndDate = findViewById(R.id.editEndDate);
         myFormat1 = "MM/dd/yy";
-        sdf = new SimpleDateFormat(myFormat1, Locale.US);
+        simpleDF = new SimpleDateFormat(myFormat1, Locale.US);
         editEndDate.setOnClickListener(v -> {
             Date date;
             String info1 = editEndDate.getText().toString();
             if (info1.equals("")) info1 = "02/10/22";
             try {
-                myCalendarStart.setTime(sdf.parse(info1));
+                myCalendarEnd.setTime(simpleDF.parse(info1));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
-                    .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+            new DatePickerDialog(CourseDetail.this, eDate, myCalendarEnd
+                    .get(Calendar.YEAR), myCalendarEnd.get(Calendar.MONTH),
                     myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
         });
-        sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
-            myCalendarStart.set(Calendar.YEAR, year);
-            myCalendarStart.set(Calendar.MONTH, monthOfYear);
-            myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabelStart();
+        eDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
+            myCalendarEnd.set(Calendar.YEAR, year);
+            myCalendarEnd.set(Calendar.MONTH, monthOfYear);
+            myCalendarEnd.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabelEnd();
         };
 
 
@@ -197,8 +200,15 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         //Course Menu
     }
     public void updateLabelStart(){
+
         editStartDate.setText(sdf.format(myCalendarStart.getTime()));
     }
+
+    public void updateLabelEnd(){
+
+        editEndDate.setText(simpleDF.format(myCalendarEnd.getTime()));
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_course_notes, menu);
         return true;
@@ -239,7 +249,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
                 String dateScreen = editEndDate.getText().toString();
                 Date dateMine=null;
                 try {
-                    dateMine = sdf.parse(dateScreen);
+                    dateMine = simpleDF.parse(dateScreen);
                 }catch (ParseException e){
                     e.printStackTrace();
                 }
