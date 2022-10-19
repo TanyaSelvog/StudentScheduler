@@ -212,7 +212,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 String dfs = editEndDate.getText().toString();
                 Date endDateAlert=null;
                 try {
-                    endDateAlert= endDateSDF.parse(dfs);
+                    endDateAlert= sdf.parse(dfs);
                 }catch (ParseException e){
                     e.printStackTrace();
                 }
