@@ -78,29 +78,36 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         editTextPhone = findViewById(R.id.editTextPhone);
         title_edit = findViewById(R.id.courseTitle);
 
-
         editStartDate = findViewById(R.id.editStartDate);
-        myFormat = "MM/dd/yy";
-        sdf = new SimpleDateFormat(myFormat, Locale.US);
-        editStartDate.setOnClickListener(v -> {
-            Date date;
-            String info = editStartDate.getText().toString();
-            if (info.equals("")) info = "02/10/22";
-            try {
-                myCalendarStart.setTime(sdf.parse(info));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
-                    .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
-                    myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
-            });
-        sDate = (datePicker, year, monthOfYear, dayOfMonth) -> {
-            myCalendarStart.set(Calendar.YEAR, year);
-            myCalendarStart.set(Calendar.MONTH, monthOfYear);
-            myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabelStart();
-        };
+                myFormat = "MM/dd/yy";
+                sdf = new SimpleDateFormat(myFormat, Locale.US);
+                editStartDate.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Date date;
+                        String info = editStartDate.getText().toString();
+                        if (info.equals("")) info = "02/10/22";
+                        try {
+                            myCalendarStart.setTime(sdf.parse(info));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        new DatePickerDialog(CourseDetail.this, sDate, myCalendarStart
+                                .get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH),
+                                myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+                    }
+                });
+                sDate = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                        myCalendarStart.set(Calendar.YEAR, year);
+                        myCalendarStart.set(Calendar.MONTH, monthOfYear);
+                        myCalendarStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        updateLabelStart();
+                    }
+                };
+
         //TODO --- FIX date with course details
         editEndDate = findViewById(R.id.editEndDate);
         myFormat1 = "MM/dd/yy";
@@ -202,29 +209,8 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
             case android.R.id.home:
                 this.finish();
                 return true;
-/**
- *
- *
- *
- * case R.id.saveCourse:
- *               Course course;
- *                 if (courseID == -1) {
- *                     int newID = repo.getAllCourses().size();
- *                     course = new Course(newID, termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
- *                             editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
- *
- *                     repo.insert(course);
- *                     Toast.makeText(getApplicationContext(), "Course has been saved.", Toast.LENGTH_LONG).show();
- *                 } else {
- *                     course = new Course(courseID,termID, title_edit.getText().toString(), editInstructor.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(),
- *                             editTextPhone.getText().toString(), editEmail.getText().toString(), status.getSelectedItem().toString(), editNote.getText().toString());
- *                     repo.update(course);
- *                     Toast.makeText(getApplicationContext(), "Course has been updated.", Toast.LENGTH_LONG).show();
- *                     return true;
- */
 
-
-            case R.id.shareNote:
+                case R.id.shareNote:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, editNote.getText().toString());
