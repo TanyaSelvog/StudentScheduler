@@ -42,6 +42,8 @@ public class TermDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_detail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         editTitle = findViewById(R.id.editTitle);
         editStartDate = findViewById(R.id.editStartDate);
         editEndDate = findViewById(R.id.editEndDate);
@@ -158,6 +160,8 @@ public class TermDetail extends AppCompatActivity {
    // }
 
         }
+
+
     }
 
 
