@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".UI.TermsList">
 
+
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="onHomeClick"
+        android:text="@string/home"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -28,4 +42,7 @@
         android:layout_marginBottom="20dp"
         android:background="@color/white"
  />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

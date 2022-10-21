@@ -51,5 +51,8 @@ public class TermsList extends AppCompatActivity {
     }
 
 
-
+    public void onHomeClick(View view) {
+        Intent intent=new Intent(TermsList.this,MainActivity.class);
+        startActivity(intent);
+    }
 }
