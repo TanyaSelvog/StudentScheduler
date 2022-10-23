@@ -8,6 +8,16 @@
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/drawable/ic_baseline_school_24.xml" value="0.22" />
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.22" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_assessment_detail.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_assessments.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_course_detail.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_courses.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_term_detail.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/activity_terms_list.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/assessment_list_item.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/course_list_item.xml" value="0.27557319223985893" />
+        <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout-land/term_list_item.xml" value="0.27557319223985893" />
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout/activity_assessment_detail.xml" value="0.335" />
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout/activity_assessments.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/tselv/OneDrive/Desktop/Mobile-Project/app/src/main/res/layout/activity_course_detail.xml" value="0.25" />
