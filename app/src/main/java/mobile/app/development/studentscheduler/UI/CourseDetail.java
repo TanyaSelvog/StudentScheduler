@@ -187,17 +187,12 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         //  status.setSelection(status);
 
 
-        //    Spinner spinner = findViewById(R.id.spinner);
-        //  spinner.setOnItemSelectedListener(this);
 
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //adapter.getDropDownView(int position, View convertView, ViewGroup parent);
 
-// Apply the adapter to the spinner
-        //   spinner.setAdapter(adapter);
 
-        //Course Menu
     }
     public void updateLabelStart(){
 
@@ -311,9 +306,7 @@ public class CourseDetail extends AppCompatActivity implements AdapterView.OnIte
         parent.getItemAtPosition(pos);
         //used for getting item and then to display it on screen with code below (but in final project - dont need)
         String item = parent.getItemAtPosition(pos).toString();
-        //   textStat.setText(item);
-        // Showing selected spinner item
-        //   Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
 
     }
 
